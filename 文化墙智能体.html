@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文化墙专业提示词生成器 · 20组方案 · 表现形式选择</title>
+    <title>文化墙专业提示词生成器 · 20组方案 · 优化布局</title>
     <style>
         :root {
             --bg: #f0ede8;
             --card-bg: #fefefc;
             --header-bg: #1c2533;
             --accent: #b8956a;
-            --accent2: #8b9db5;
             --text: #1e2a36;
             --text2: #4a5462;
-            --text3: #6b7682;
             --border: #dde1e6;
             --btn-bg: #1e2a36;
             --btn-hover: #111922;
@@ -26,1025 +24,529 @@
             --model-active-text: #fff;
             --form-active: #7a9a6e;
             --form-active-text: #fff;
-            --shadow: 0 20px 44px rgba(0, 0, 0, 0.10);
-            --radius: 22px;
-            --radius-sm: 10px;
-            --transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 20px 44px rgba(0,0,0,0.08);
+            --radius: 20px;
+            --transition: 0.18s ease;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{
             background: linear-gradient(170deg, #e8e4de 0%, #ddd9d1 20%, #e3e0d9 50%, #e9e8e3 100%);
-            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 24px 14px 50px;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;
+            display:flex; justify-content:center; align-items:flex-start; min-height:100vh; padding:20px 14px 50px;
+            -webkit-font-smoothing:antialiased;
         }
-        .generator-card {
-            max-width: 1420px;
-            width: 100%;
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            border: 1px solid #d9dcdd;
+        .generator-card{
+            max-width:1440px; width:100%; background:var(--card-bg); border-radius:var(--radius);
+            box-shadow:var(--shadow); overflow:hidden; border:1px solid #d9dcdd;
         }
-        .header {
-            background: var(--header-bg);
-            padding: 22px 30px 20px;
-            color: #fff;
-            border-bottom: 3px solid var(--accent);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
+        .header{
+            background:var(--header-bg); padding:20px 28px 18px; color:#fff;
+            border-bottom:3px solid var(--accent); display:flex; flex-wrap:wrap; align-items:center;
+            justify-content:space-between; gap:10px;
         }
-        .header h1 {
-            font-size: 26px;
-            font-weight: 500;
-            letter-spacing: 0.8px;
-            color: #f2f4f6;
+        .header h1{font-size:26px; font-weight:500; letter-spacing:0.8px; color:#f2f4f6;}
+        .header .subtitle{font-size:13px; color:#bcc5cf; border-left:3px solid var(--accent); padding-left:14px;}
+        .header-badge{
+            background:rgba(255,255,255,0.06); color:#cdd6e0; padding:5px 14px; border-radius:20px;
+            font-size:12px; border:1px solid rgba(255,255,255,0.1); white-space:nowrap;
         }
-        .header .subtitle {
-            font-size: 13.5px;
-            color: #bcc5cf;
-            letter-spacing: 0.3px;
-            border-left: 3px solid var(--accent);
-            padding-left: 14px;
+        .main{display:flex; flex-wrap:wrap;}
+
+        /* 输入面板 - 比例缩小一点，文字区置顶 */
+        .input-panel{
+            flex:1 1 400px; min-width:340px; background:#fcfbf8; padding:20px 18px 18px;
+            border-right:1px solid #eaedf0; display:flex; flex-direction:column; gap:14px;
+            max-height:950px; overflow-y:auto;
         }
-        .header-badge {
-            background: rgba(255, 255, 255, 0.06);
-            color: #cdd6e0;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 12.5px;
-            letter-spacing: 0.4px;
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            white-space: nowrap;
-            flex-shrink: 0;
+        .section-title{
+            font-size:13.5px; font-weight:600; color:#4a5462; letter-spacing:0.4px;
+            display:flex; align-items:center; gap:5px; margin-bottom:4px;
         }
-        .main {
-            display: flex;
-            flex-wrap: wrap;
+        .section-title .icon-dot{width:6px; height:6px; border-radius:50%; background:var(--accent);}
+        .btn-group-grid{
+            display:grid; grid-template-columns:repeat(2,1fr); gap:6px;
         }
-        .input-panel {
-            flex: 1 1 460px;
-            min-width: 360px;
-            background: #fcfbf8;
-            padding: 24px 22px 20px;
-            border-right: 1px solid #eaedf0;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-height: 900px;
-            overflow-y: auto;
+        .btn-group-grid.col3{grid-template-columns:repeat(3,1fr);}
+        .btn-group-grid.col4{grid-template-columns:repeat(4,1fr);}
+        .btn-group-grid.col5{grid-template-columns:repeat(5,1fr);}
+        .tag-btn{
+            display:inline-flex; align-items:center; justify-content:center; text-align:center;
+            padding:8px 5px; font-size:12px; font-weight:500; letter-spacing:0.2px;
+            background:var(--tag-bg); color:#3a4552; border:1.5px solid #e0e4e9; border-radius:7px;
+            cursor:pointer; transition:var(--transition); user-select:none; white-space:nowrap;
+            font-family:inherit; line-height:1.3;
         }
-        .input-panel::-webkit-scrollbar {
-            width: 4px;
+        .tag-btn:hover{background:#e5eaf0; border-color:#c5cdd6; transform:translateY(-1px);}
+        .tag-btn.active{
+            background:var(--tag-active); color:var(--tag-active-text); border-color:var(--tag-active);
+            font-weight:600; box-shadow:0 3px 10px rgba(30,42,54,0.2);
         }
-        .input-panel::-webkit-scrollbar-thumb {
-            background: #ccd3db;
-            border-radius: 8px;
+        .tag-btn.mat-active{
+            background:var(--mat-active); color:var(--mat-active-text); border-color:#a07d52;
+            font-weight:600; box-shadow:0 3px 10px rgba(184,149,106,0.25);
         }
-        .section-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #4a5462;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+        .tag-btn.model-active{
+            background:var(--model-active); color:var(--model-active-text); border-color:#3a6a8a;
+            font-weight:600; box-shadow:0 3px 10px rgba(74,124,155,0.25);
         }
-        .section-title .icon-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex-shrink: 0;
+        .tag-btn.form-active{
+            background:var(--form-active); color:var(--form-active-text); border-color:#5d7d54;
+            font-weight:600; box-shadow:0 3px 10px rgba(122,154,110,0.3);
         }
-        .btn-group-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 7px;
+        .input-row{display:flex; flex-wrap:wrap; gap:8px;}
+        .input-row .input-group{flex:1; min-width:100px;}
+        .input-group label{display:block; font-size:12px; font-weight:500; color:#4a5462; margin-bottom:2px;}
+        .input-group input{
+            width:100%; padding:10px 12px; font-size:13px; background:#f9fafb; border:1px solid #d5dbe2;
+            border-radius:6px; font-family:inherit; color:#1e2a36; transition:var(--transition);
         }
-        .btn-group-grid.col3 {
-            grid-template-columns: repeat(3, 1fr);
+        .input-group input:focus{border-color:var(--accent); outline:none; box-shadow:0 0 0 3px rgba(184,149,106,0.08); background:#fff;}
+        .generate-btn{
+            background:var(--btn-bg); border:none; width:100%; padding:13px; font-size:15px; font-weight:500;
+            color:#fff; letter-spacing:1px; border-radius:26px; cursor:pointer; transition:var(--transition);
+            border-bottom:3px solid var(--accent); margin-top:6px; font-family:inherit;
         }
-        .btn-group-grid.col4 {
-            grid-template-columns: repeat(4, 1fr);
+        .generate-btn:hover{background:var(--btn-hover); transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.15);}
+
+        /* 输出面板 - 比例加大，图框舒适 */
+        .output-panel{
+            flex:2.3 1 680px; background:#fafaf7; padding:20px 22px 16px; max-height:950px;
+            overflow-y:auto; display:flex; flex-direction:column; gap:10px;
         }
-        .btn-group-grid.col5 {
-            grid-template-columns: repeat(5, 1fr);
+        .output-header{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;}
+        .output-header h2{font-size:20px; font-weight:500; color:#1e2a36;}
+        .badge{
+            background:#e8ecf1; color:#3a4552; padding:4px 12px; border-radius:16px; font-size:12px;
+            font-weight:500; white-space:nowrap;
         }
-        .tag-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 9px 6px;
-            font-size: 12.5px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            background: var(--tag-bg);
-            color: #3a4552;
-            border: 1.5px solid #e0e4e9;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            user-select: none;
-            white-space: nowrap;
-            font-family: inherit;
-            line-height: 1.3;
+        .badge.accent{background:#f3ede5; color:#8b6d4a;}
+        .badge.model-badge{background:#e4edf3; color:#3a5d7a;}
+        .badge.count-badge{background:#e8f0e8; color:#4a7a4e; font-weight:600;}
+        .badge.form-badge{background:#eaf5e5; color:#4a6e3f;}
+        .prompts-grid{display:flex; flex-direction:column; gap:12px;}
+        .prompt-item{
+            background:#fff; border:1px solid #eaedf0; border-radius:12px; padding:18px 22px 16px;
+            transition:var(--transition); position:relative; display:flex; flex-direction:column; gap:8px;
         }
-        .tag-btn:hover {
-            background: #e5eaf0;
-            border-color: #c5cdd6;
-            transform: translateY(-1px);
+        .prompt-item:hover{border-color:#c5cdd6; box-shadow:0 4px 14px rgba(0,0,0,0.04);}
+        .prompt-top-row{display:flex; align-items:center; gap:7px; flex-wrap:wrap;}
+        .prompt-num{
+            font-size:11px; font-weight:600; color:#6b7682; background:#f1f4f7;
+            padding:3px 9px; border-radius:10px; white-space:nowrap;
         }
-        .tag-btn.active {
-            background: var(--tag-active);
-            color: var(--tag-active-text);
-            border-color: var(--tag-active);
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(30, 42, 54, 0.2);
+        .prompt-tag{
+            font-size:10.5px; font-weight:500; padding:2px 7px; border-radius:10px; white-space:nowrap;
         }
-        .tag-btn.mat-active {
-            background: var(--mat-active);
-            color: var(--mat-active-text);
-            border-color: #a07d52;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(184, 149, 106, 0.25);
+        .tag-material{background:#fdf3e8; color:#8b6d4a;}
+        .tag-color{background:#e8f0f7; color:#4a6d8c;}
+        .tag-theme{background:#eef5ed; color:#4a7a4e;}
+        .tag-layout{background:#f5f0fa; color:#6b4d8a;}
+        .tag-form{background:#dff0d8; color:#3c6e2f;}
+        .prompt-text{
+            font-size:14px; line-height:1.75; color:#2d3844; padding-right:75px;
+            word-break:break-word; background:#f9fafb; padding:12px 16px; border-radius:8px;
+            white-space:pre-wrap; letter-spacing:0.2px;
         }
-        .tag-btn.model-active {
-            background: var(--model-active);
-            color: var(--model-active-text);
-            border-color: #3a6a8a;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(74, 124, 155, 0.25);
+        .copy-btn{
+            background:#f6f8fa; color:#3a4552; border:1px solid #dde1e6; border-radius:20px;
+            padding:6px 14px; font-size:12px; font-weight:500; cursor:pointer; transition:var(--transition);
+            display:inline-flex; align-items:center; gap:4px; position:absolute; bottom:14px; right:18px;
+            font-family:inherit; z-index:1;
         }
-        .tag-btn.form-active {
-            background: var(--form-active);
-            color: var(--form-active-text);
-            border-color: #5d7d54;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(122, 154, 110, 0.3);
+        .copy-btn:hover{background:#b8956a; color:#fff; border-color:#a07d52;}
+        .copy-btn.copied{background:#4caf50; color:#fff; border-color:#388e3c; pointer-events:none;}
+        .footer-note{
+            font-size:11px; color:#8b95a2; text-align:right; border-top:1px dashed #dde1e6;
+            padding-top:10px; flex-shrink:0;
         }
-        .input-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .empty-state{text-align:center; padding:40px 20px; color:#9aa5b0; font-size:14px;}
+
+        @media(max-width:950px){
+            .input-panel{border-right:none; border-bottom:1px solid #eaedf0; flex:1 1 100%; max-height:none;}
+            .output-panel{flex:1 1 100%; max-height:650px;}
+            .btn-group-grid.col5{grid-template-columns:repeat(3,1fr);}
+            .btn-group-grid.col4{grid-template-columns:repeat(2,1fr);}
+            .prompt-text{padding-right:60px; font-size:13px;}
         }
-        .input-row .input-group {
-            flex: 1;
-            min-width: 100px;
-        }
-        .input-group label {
-            display: block;
-            font-size: 12.5px;
-            font-weight: 500;
-            color: #4a5462;
-            margin-bottom: 3px;
-            letter-spacing: 0.2px;
-        }
-        .input-group input,
-        .input-group textarea {
-            width: 100%;
-            padding: 10px 13px;
-            font-size: 13.5px;
-            background: #f9fafb;
-            border: 1px solid #d5dbe2;
-            border-radius: 7px;
-            font-family: inherit;
-            color: #1e2a36;
-            transition: var(--transition);
-            letter-spacing: 0.2px;
-        }
-        .input-group input:focus,
-        .input-group textarea:focus {
-            border-color: var(--accent);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(184, 149, 106, 0.08);
-            background: #fff;
-        }
-        .input-group textarea {
-            min-height: 60px;
-            resize: vertical;
-            line-height: 1.5;
-        }
-        .generate-btn {
-            background: var(--btn-bg);
-            border: none;
-            width: 100%;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #fff;
-            letter-spacing: 1.2px;
-            border-radius: 28px;
-            cursor: pointer;
-            transition: var(--transition);
-            border-bottom: 3px solid var(--accent);
-            position: relative;
-            overflow: hidden;
-            font-family: inherit;
-            margin-top: 4px;
-        }
-        .generate-btn:hover {
-            background: var(--btn-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-        }
-        .generate-btn:active {
-            transform: translateY(0);
-            transition: 0.06s;
-        }
-        .output-panel {
-            flex: 2 1 620px;
-            background: #fafaf7;
-            padding: 22px 22px 16px;
-            max-height: 900px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .output-panel::-webkit-scrollbar {
-            width: 4px;
-        }
-        .output-panel::-webkit-scrollbar-thumb {
-            background: #ccd3db;
-            border-radius: 8px;
-        }
-        .output-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .output-header h2 {
-            font-size: 20px;
-            font-weight: 500;
-            color: #1e2a36;
-            letter-spacing: 0.4px;
-        }
-        .badge {
-            background: #e8ecf1;
-            color: #3a4552;
-            padding: 5px 14px;
-            border-radius: 18px;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            white-space: nowrap;
-        }
-        .badge.accent {
-            background: #f3ede5;
-            color: #8b6d4a;
-        }
-        .badge.model-badge {
-            background: #e4edf3;
-            color: #3a5d7a;
-        }
-        .badge.count-badge {
-            background: #e8f0e8;
-            color: #4a7a4e;
-            font-weight: 600;
-        }
-        .badge.form-badge {
-            background: #eaf5e5;
-            color: #4a6e3f;
-        }
-        .prompts-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 9px;
-        }
-        .prompt-item {
-            background: #fff;
-            border: 1px solid #eaedf0;
-            border-radius: var(--radius-sm);
-            padding: 16px 18px 12px;
-            transition: var(--transition);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .prompt-item:hover {
-            border-color: #c5cdd6;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
-        }
-        .prompt-top-row {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .prompt-num {
-            font-size: 11px;
-            font-weight: 600;
-            color: #6b7682;
-            background: #f1f4f7;
-            padding: 3px 8px;
-            border-radius: 10px;
-            letter-spacing: 0.3px;
-            white-space: nowrap;
-        }
-        .prompt-tag {
-            font-size: 10.5px;
-            font-weight: 500;
-            padding: 2px 7px;
-            border-radius: 10px;
-            letter-spacing: 0.2px;
-            white-space: nowrap;
-        }
-        .tag-material {
-            background: #fdf3e8;
-            color: #8b6d4a;
-        }
-        .tag-color {
-            background: #e8f0f7;
-            color: #4a6d8c;
-        }
-        .tag-theme {
-            background: #eef5ed;
-            color: #4a7a4e;
-        }
-        .tag-layout {
-            background: #f5f0fa;
-            color: #6b4d8a;
-        }
-        .tag-form {
-            background: #dff0d8;
-            color: #3c6e2f;
-        }
-        .tag-model-sm {
-            background: #eaf0f7;
-            color: #3a5d7a;
-            font-size: 10px;
-            padding: 2px 7px;
-        }
-        .prompt-text {
-            font-size: 13px;
-            line-height: 1.7;
-            color: #2d3844;
-            padding-right: 65px;
-            word-break: break-word;
-            background: #f9fafb;
-            padding: 9px 12px;
-            border-radius: 6px;
-            white-space: pre-wrap;
-            letter-spacing: 0.2px;
-        }
-        .copy-btn {
-            background: #f6f8fa;
-            color: #3a4552;
-            border: 1px solid #dde1e6;
-            border-radius: 18px;
-            padding: 5px 12px;
-            font-size: 11.5px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            position: absolute;
-            bottom: 10px;
-            right: 14px;
-            white-space: nowrap;
-            font-family: inherit;
-            letter-spacing: 0.3px;
-            z-index: 1;
-        }
-        .copy-btn:hover {
-            background: #b8956a;
-            color: #fff;
-            border-color: #a07d52;
-        }
-        .copy-btn.copied {
-            background: #4caf50;
-            color: #fff;
-            border-color: #388e3c;
-            pointer-events: none;
-        }
-        .footer-note {
-            font-size: 11.5px;
-            color: #8b95a2;
-            text-align: right;
-            border-top: 1px dashed #dde1e6;
-            padding-top: 10px;
-            letter-spacing: 0.3px;
-            flex-shrink: 0;
-        }
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #9aa5b0;
-            font-size: 14px;
-            letter-spacing: 0.3px;
-            background: #fafbfc;
-            border-radius: var(--radius-sm);
-        }
-        @media (max-width: 900px) {
-            .input-panel {
-                border-right: none;
-                border-bottom: 1px solid #eaedf0;
-                flex: 1 1 100%;
-                max-height: none;
-            }
-            .output-panel {
-                flex: 1 1 100%;
-                max-height: 600px;
-            }
-            .btn-group-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .btn-group-grid.col3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .btn-group-grid.col4 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .btn-group-grid.col5 {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .prompt-text {
-                padding-right: 55px;
-                font-size: 12px;
-            }
-            .header h1 {
-                font-size: 21px;
-            }
-            .tag-btn {
-                font-size: 11px;
-                padding: 7px 4px;
-            }
-        }
-        @media (max-width: 500px) {
-            .btn-group-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 5px;
-            }
-            .btn-group-grid.col3,
-            .btn-group-grid.col4,
-            .btn-group-grid.col5 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .prompt-text {
-                padding-right: 0;
-                padding-bottom: 35px;
-            }
-            .input-panel {
-                padding: 16px 10px 14px;
-            }
-            .output-panel {
-                padding: 14px 10px 12px;
-            }
-            .tag-btn {
-                font-size: 10.5px;
-                padding: 7px 3px;
-                letter-spacing: 0;
-            }
-            .header {
-                padding: 16px 14px 14px;
-            }
-            .header h1 {
-                font-size: 18px;
-                letter-spacing: 0.4px;
-            }
+        @media(max-width:500px){
+            .btn-group-grid,.btn-group-grid.col3,.btn-group-grid.col4,.btn-group-grid.col5{grid-template-columns:repeat(2,1fr);}
+            .prompt-text{padding-right:0; padding-bottom:40px;}
+            .prompt-item{padding:14px 14px 48px;}
+            .header h1{font-size:20px;}
         }
     </style>
 </head>
 <body>
-    <div class="generator-card">
-        <div class="header">
-            <div>
-                <h1>文化墙专业提示词生成器 · 20组方案</h1>
-                <span class="subtitle">材质·主题·色彩·表现形式 · 全中文输出 · 每组不重复</span>
-            </div>
-            <span class="header-badge">🏗️ 即梦AI / MidJourney / Image2 / 香蕉模型</span>
+<div class="generator-card">
+    <div class="header">
+        <div>
+            <h1>文化墙专业提示词生成器 · 20组方案</h1>
+            <span class="subtitle">材质·主题·色彩·表现形式 · 全中文 · 每组不重复</span>
         </div>
-
-        <div class="main">
-            <div class="input-panel" id="inputPanel">
-                <!-- 行业类型 -->
-                <div>
-                    <div class="section-title"><span class="icon-dot"></span>行业类型（必选）</div>
-                    <div class="btn-group-grid col5" id="industryBtns">
-                        <button class="tag-btn active" data-industry="党建文化墙">党建文化墙</button>
-                        <button class="tag-btn" data-industry="机关单位文化墙">机关单位文化墙</button>
-                        <button class="tag-btn" data-industry="企业介绍文化墙">企业介绍文化墙</button>
-                        <button class="tag-btn" data-industry="品牌故事文化墙">品牌故事文化墙</button>
-                        <button class="tag-btn" data-industry="发展历程文化墙">发展历程文化墙</button>
-                        <button class="tag-btn" data-industry="团队风采文化墙">团队风采文化墙</button>
-                        <button class="tag-btn" data-industry="合作伙伴文化墙">合作伙伴文化墙</button>
-                        <button class="tag-btn" data-industry="互动版板块文化墙">互动版板块文化墙</button>
-                        <button class="tag-btn" data-industry="商业空间文化墙">商业空间文化墙</button>
-                        <button class="tag-btn" data-industry="校园文化墙">校园文化墙</button>
-                    </div>
-                </div>
-
-                <!-- 材质选择 -->
-                <div>
-                    <div class="section-title"><span class="icon-dot"></span>主材质（单选）</div>
-                    <div class="btn-group-grid col4" id="materialBtns">
-                        <button class="tag-btn mat-active" data-material="烤漆板">烤漆板</button>
-                        <button class="tag-btn" data-material="木饰面">木饰面</button>
-                        <button class="tag-btn" data-material="微水泥">微水泥</button>
-                        <button class="tag-btn" data-material="金属板">金属板</button>
-                        <button class="tag-btn" data-material="亚克力">亚克力</button>
-                        <button class="tag-btn" data-material="石材纹理">石材纹理</button>
-                        <button class="tag-btn" data-material="艺术涂料">艺术涂料</button>
-                        <button class="tag-btn" data-material="波浪板">波浪板</button>
-                        <button class="tag-btn" data-material="皮革硬包">皮革硬包</button>
-                        <button class="tag-btn" data-material="磨砂玻璃">磨砂玻璃</button>
-                        <button class="tag-btn" data-material="木格栅">木格栅</button>
-                        <button class="tag-btn" data-material="铝塑板">铝塑板</button>
-                    </div>
-                </div>
-
-                <!-- 风格倾向 -->
-                <div>
-                    <div class="section-title"><span class="icon-dot"></span>风格倾向</div>
-                    <div class="btn-group-grid col3" id="styleBtns">
-                        <button class="tag-btn active" data-style="现代简约">现代简约</button>
-                        <button class="tag-btn" data-style="商务大气">商务大气</button>
-                        <button class="tag-btn" data-style="轻奢高级">轻奢高级</button>
-                        <button class="tag-btn" data-style="新中式">新中式</button>
-                        <button class="tag-btn" data-style="科技感">科技感</button>
-                        <button class="tag-btn" data-style="庄重红色">庄重红色</button>
-                    </div>
-                </div>
-
-                <!-- 表现形式（新增） -->
-                <div>
-                    <div class="section-title"><span class="icon-dot"></span>表现形式（单选）</div>
-                    <div class="btn-group-grid col4" id="formStyleBtns">
-                        <button class="tag-btn form-active" data-form="立体造型">立体造型</button>
-                        <button class="tag-btn" data-form="平面印刷">平面印刷</button>
-                        <button class="tag-btn" data-form="自然森系风格">自然森系风格</button>
-                        <button class="tag-btn" data-form="可更新材质文化墙">可更新材质文化墙</button>
-                        <button class="tag-btn" data-form="实物展示风格">实物展示风格</button>
-                        <button class="tag-btn" data-form="生态自然风">生态自然风</button>
-                        <button class="tag-btn" data-form="新中式">新中式</button>
-                        <button class="tag-btn" data-form="科技感">科技感</button>
-                        <button class="tag-btn" data-form="体育竞技风格文化墙">体育竞技风格</button>
-                        <button class="tag-btn" data-form="卡通风格">卡通风格</button>
-                        <button class="tag-btn" data-form="现代简约">现代简约</button>
-                        <button class="tag-btn" data-form="校园风格">校园风格</button>
-                        <button class="tag-btn" data-form="廉政党建">廉政党建</button>
-                        <button class="tag-btn" data-form="乡村文化墙">乡村文化墙</button>
-                        <button class="tag-btn" data-form="社区文化墙">社区文化墙</button>
-                        <button class="tag-btn" data-form="医院文化墙">医院文化墙</button>
-                    </div>
-                </div>
-
-                <!-- 生图模型选择 -->
-                <div>
-                    <div class="section-title"><span class="icon-dot"></span>生图模型（全中文输出）</div>
-                    <div class="btn-group-grid col4" id="modelBtns">
-                        <button class="tag-btn model-active" data-model="jimeng">即梦AI</button>
-                        <button class="tag-btn" data-model="midjourney">MidJourney</button>
-                        <button class="tag-btn" data-model="image2">Image2</button>
-                        <button class="tag-btn" data-model="banana">香蕉模型</button>
-                    </div>
-                </div>
-
-                <!-- 文字内容 -->
-                <div>
-                    <div class="section-title"><span class="icon-dot"></span>文字内容</div>
-                    <div class="input-row">
-                        <div class="input-group">
-                            <label>主标题 / 使命</label>
-                            <input type="text" id="mission" value="不忘初心·牢记使命" placeholder="输入主标题或使命语句">
-                        </div>
-                        <div class="input-group">
-                            <label>副标题 / 愿景</label>
-                            <input type="text" id="vision" value="建设一流团队·服务高质量发展" placeholder="输入副标题或愿景语句">
-                        </div>
-                    </div>
-                    <div class="input-row" style="margin-top:8px;">
-                        <div class="input-group">
-                            <label>补充内容 / 价值观</label>
-                            <input type="text" id="values" value="忠诚·担当·创新·奉献" placeholder="输入价值观或补充内容">
-                        </div>
-                        <div class="input-group">
-                            <label>空间位置</label>
-                            <input type="text" id="spaceType" value="单位大厅主墙面" placeholder="例：单位大厅主墙面 / 走廊">
-                        </div>
-                    </div>
-                </div>
-
-                <button class="generate-btn" id="generateBtn">⚡ 生成 20 组专业提示词（每组不重复）</button>
-            </div>
-
-            <div class="output-panel" id="outputPanel">
-                <div class="output-header">
-                    <h2>📐 20组正立面专业提示词（全中文）</h2>
-                    <span class="badge accent" id="industryBadge">党建文化墙</span>
-                    <span class="badge form-badge" id="formBadge">立体造型</span>
-                    <span class="badge model-badge" id="modelBadge">即梦AI</span>
-                    <span class="badge count-badge" id="countDisplay">0 / 20</span>
-                </div>
-                <div class="prompts-grid" id="promptsList">
-                    <div class="empty-state">
-                        <div>点击「生成 20 组专业提示词」按钮</div>
-                        <div style="margin-top:6px;color:#bcc4cc;">将按行业·材质·风格·表现形式生成20组不重复方案</div>
-                    </div>
-                </div>
-                <div class="footer-note">
-                    ⚡ 20组完全不同的布局与材质组合 · 全中文输出 · 正立面完全展示
-                </div>
-            </div>
-        </div>
+        <span class="header-badge">🏗️ 即梦AI / MidJourney / Image2 / 香蕉模型</span>
     </div>
 
-    <script>
-        (function() {
-            // 元素引用
-            const industryBtnsContainer = document.getElementById('industryBtns');
-            const materialBtnsContainer = document.getElementById('materialBtns');
-            const styleBtnsContainer = document.getElementById('styleBtns');
-            const formStyleBtnsContainer = document.getElementById('formStyleBtns');
-            const modelBtnsContainer = document.getElementById('modelBtns');
-            const generateBtn = document.getElementById('generateBtn');
-            const promptsListDiv = document.getElementById('promptsList');
-            const countDisplay = document.getElementById('countDisplay');
-            const industryBadge = document.getElementById('industryBadge');
-            const formBadge = document.getElementById('formBadge');
-            const modelBadge = document.getElementById('modelBadge');
-            const outputPanel = document.getElementById('outputPanel');
-            const missionInput = document.getElementById('mission');
-            const visionInput = document.getElementById('vision');
-            const valuesInput = document.getElementById('values');
-            const spaceTypeInput = document.getElementById('spaceType');
+    <div class="main">
+        <!-- 输入面板：文字内容置顶 -->
+        <div class="input-panel" id="inputPanel">
+            <!-- 文字内容区（移到最上面） -->
+            <div>
+                <div class="section-title"><span class="icon-dot"></span>文字内容</div>
+                <div class="input-row">
+                    <div class="input-group"><label>主标题 / 使命</label><input type="text" id="mission" value="不忘初心·牢记使命"></div>
+                    <div class="input-group"><label>副标题 / 愿景</label><input type="text" id="vision" value="建设一流团队·服务高质量发展"></div>
+                </div>
+                <div class="input-row" style="margin-top:6px;">
+                    <div class="input-group"><label>补充内容 / 价值观</label><input type="text" id="values" value="忠诚·担当·创新·奉献"></div>
+                    <div class="input-group"><label>空间位置</label><input type="text" id="spaceType" value="单位大厅主墙面"></div>
+                </div>
+            </div>
 
-            // 状态
-            let selectedIndustry = '党建文化墙';
-            let selectedMaterial = '烤漆板';
-            let selectedStyle = '现代简约';
-            let selectedFormStyle = '立体造型';
-            let selectedModel = 'jimeng';
+            <!-- 行业类型 -->
+            <div>
+                <div class="section-title"><span class="icon-dot"></span>行业类型（必选）</div>
+                <div class="btn-group-grid col5" id="industryBtns">
+                    <button class="tag-btn active" data-industry="党建文化墙">党建文化墙</button>
+                    <button class="tag-btn" data-industry="机关单位文化墙">机关单位文化墙</button>
+                    <button class="tag-btn" data-industry="企业介绍文化墙">企业介绍文化墙</button>
+                    <button class="tag-btn" data-industry="品牌故事文化墙">品牌故事文化墙</button>
+                    <button class="tag-btn" data-industry="发展历程文化墙">发展历程文化墙</button>
+                    <button class="tag-btn" data-industry="团队风采文化墙">团队风采文化墙</button>
+                    <button class="tag-btn" data-industry="合作伙伴文化墙">合作伙伴文化墙</button>
+                    <button class="tag-btn" data-industry="互动版板块文化墙">互动版板块文化墙</button>
+                    <button class="tag-btn" data-industry="商业空间文化墙">商业空间文化墙</button>
+                    <button class="tag-btn" data-industry="校园文化墙">校园文化墙</button>
+                </div>
+            </div>
 
-            // 按钮组交互
-            function setupButtonGroup(container, activeClass, onSelect) {
-                container.addEventListener('click', function(e) {
-                    const btn = e.target.closest('button');
-                    if (!btn) return;
-                    container.querySelectorAll('button').forEach(b => {
-                        b.classList.remove('active', 'mat-active', 'model-active',
-                            'form-active');
-                    });
-                    btn.classList.add(activeClass);
-                    onSelect(btn);
-                });
-            }
+            <!-- 主材质 -->
+            <div>
+                <div class="section-title"><span class="icon-dot"></span>主材质（单选）</div>
+                <div class="btn-group-grid col4" id="materialBtns">
+                    <button class="tag-btn mat-active" data-material="烤漆板">烤漆板</button>
+                    <button class="tag-btn" data-material="木饰面">木饰面</button>
+                    <button class="tag-btn" data-material="微水泥">微水泥</button>
+                    <button class="tag-btn" data-material="金属板">金属板</button>
+                    <button class="tag-btn" data-material="亚克力">亚克力</button>
+                    <button class="tag-btn" data-material="石材纹理">石材纹理</button>
+                    <button class="tag-btn" data-material="艺术涂料">艺术涂料</button>
+                    <button class="tag-btn" data-material="波浪板">波浪板</button>
+                    <button class="tag-btn" data-material="皮革硬包">皮革硬包</button>
+                    <button class="tag-btn" data-material="磨砂玻璃">磨砂玻璃</button>
+                    <button class="tag-btn" data-material="木格栅">木格栅</button>
+                    <button class="tag-btn" data-material="铝塑板">铝塑板</button>
+                </div>
+            </div>
 
-            setupButtonGroup(industryBtnsContainer, 'active', function(btn) {
-                selectedIndustry = btn.getAttribute('data-industry');
-                industryBadge.textContent = selectedIndustry;
-                if (selectedIndustry === '党建文化墙' || selectedIndustry === '机关单位文化墙') {
-                    const styleBtns = styleBtnsContainer.querySelectorAll('button');
-                    styleBtns.forEach(b => b.classList.remove('active'));
-                    const redBtn = styleBtnsContainer.querySelector('[data-style="庄重红色"]');
-                    if (redBtn) {
-                        redBtn.classList.add('active');
-                        selectedStyle = '庄重红色';
-                    }
-                }
-            });
+            <!-- 风格倾向 -->
+            <div>
+                <div class="section-title"><span class="icon-dot"></span>风格倾向</div>
+                <div class="btn-group-grid col3" id="styleBtns">
+                    <button class="tag-btn active" data-style="现代简约">现代简约</button>
+                    <button class="tag-btn" data-style="商务大气">商务大气</button>
+                    <button class="tag-btn" data-style="轻奢高级">轻奢高级</button>
+                    <button class="tag-btn" data-style="新中式">新中式</button>
+                    <button class="tag-btn" data-style="科技感">科技感</button>
+                    <button class="tag-btn" data-style="庄重红色">庄重红色</button>
+                </div>
+            </div>
 
-            setupButtonGroup(materialBtnsContainer, 'mat-active', function(btn) {
-                selectedMaterial = btn.getAttribute('data-material');
-            });
+            <!-- 表现形式 -->
+            <div>
+                <div class="section-title"><span class="icon-dot"></span>表现形式（单选）</div>
+                <div class="btn-group-grid col4" id="formStyleBtns">
+                    <button class="tag-btn form-active" data-form="立体造型">立体造型</button>
+                    <button class="tag-btn" data-form="平面印刷">平面印刷</button>
+                    <button class="tag-btn" data-form="自然森系风格">自然森系风格</button>
+                    <button class="tag-btn" data-form="可更新材质文化墙">可更新材质文化墙</button>
+                    <button class="tag-btn" data-form="实物展示风格">实物展示风格</button>
+                    <button class="tag-btn" data-form="生态自然风">生态自然风</button>
+                    <button class="tag-btn" data-form="新中式">新中式</button>
+                    <button class="tag-btn" data-form="科技感">科技感</button>
+                    <button class="tag-btn" data-form="体育竞技风格文化墙">体育竞技风格</button>
+                    <button class="tag-btn" data-form="卡通风格">卡通风格</button>
+                    <button class="tag-btn" data-form="现代简约">现代简约</button>
+                    <button class="tag-btn" data-form="校园风格">校园风格</button>
+                    <button class="tag-btn" data-form="廉政党建">廉政党建</button>
+                    <button class="tag-btn" data-form="乡村文化墙">乡村文化墙</button>
+                    <button class="tag-btn" data-form="社区文化墙">社区文化墙</button>
+                    <button class="tag-btn" data-form="医院文化墙">医院文化墙</button>
+                </div>
+            </div>
 
-            setupButtonGroup(styleBtnsContainer, 'active', function(btn) {
-                selectedStyle = btn.getAttribute('data-style');
-            });
+            <!-- 生图模型 -->
+            <div>
+                <div class="section-title"><span class="icon-dot"></span>生图模型（全中文输出）</div>
+                <div class="btn-group-grid col4" id="modelBtns">
+                    <button class="tag-btn model-active" data-model="jimeng">即梦AI</button>
+                    <button class="tag-btn" data-model="midjourney">MidJourney</button>
+                    <button class="tag-btn" data-model="image2">Image2</button>
+                    <button class="tag-btn" data-model="banana">香蕉模型</button>
+                </div>
+            </div>
 
-            setupButtonGroup(formStyleBtnsContainer, 'form-active', function(btn) {
-                selectedFormStyle = btn.getAttribute('data-form');
-                formBadge.textContent = selectedFormStyle;
-            });
+            <button class="generate-btn" id="generateBtn">⚡ 生成 20 组专业提示词（不重复）</button>
+        </div>
 
-            setupButtonGroup(modelBtnsContainer, 'model-active', function(btn) {
-                selectedModel = btn.getAttribute('data-model');
-                const modelNames = {
-                    'jimeng': '即梦AI',
-                    'midjourney': 'MidJourney',
-                    'image2': 'Image2',
-                    'banana': '香蕉模型'
-                };
-                modelBadge.textContent = modelNames[selectedModel] || selectedModel;
-            });
+        <!-- 输出面板 -->
+        <div class="output-panel" id="outputPanel">
+            <div class="output-header">
+                <h2>📐 20组正立面专业提示词</h2>
+                <span class="badge accent" id="industryBadge">党建文化墙</span>
+                <span class="badge form-badge" id="formBadge">立体造型</span>
+                <span class="badge model-badge" id="modelBadge">即梦AI</span>
+                <span class="badge count-badge" id="countDisplay">0 / 20</span>
+            </div>
+            <div class="prompts-grid" id="promptsList">
+                <div class="empty-state">点击生成按钮，显示20组专业方案</div>
+            </div>
+            <div class="footer-note">⚡ 20组完全不同 · 全中文 · 正立面完全展示</div>
+        </div>
+    </div>
+</div>
 
-            // 行业色彩方案
-            function getIndustryColors(industry) {
-                const map = {
-                    '党建文化墙': ['中国红', '鎏金', '米白', '深红', '暖黄', '朱砂红', '象牙白', '暗金', '赤红', '浅驼'],
-                    '机关单位文化墙': ['深红', '金色', '米色', '深蓝', '纯白', '藏蓝', '银灰', '浅金', '墨绿', '暖白'],
-                    '企业介绍文化墙': ['科技蓝', '纯白', '深灰', '浅蓝', '银灰', '宝蓝', '碳黑', '冰白', '钴蓝', '雾灰'],
-                    '品牌故事文化墙': ['暖棕', '米白', '深咖', '古铜', '浅灰', '焦糖', '奶白', '巧克力', '亚麻', '陶土'],
-                    '发展历程文化墙': ['深灰', '金色', '纯白', '浅灰', '深蓝', '铁灰', '香槟金', '珍珠白', '石墨', '烟蓝'],
-                    '团队风采文化墙': ['活力橙', '纯白', '浅灰', '深蓝', '暖黄', '珊瑚', '天蓝', '柠檬黄', '草绿', '奶白'],
-                    '合作伙伴文化墙': ['商务蓝', '纯白', '银灰', '深灰', '金色', '海军蓝', '铂金', '雾蓝', '炭灰', '亮白'],
-                    '互动版板块文化墙': ['清新绿', '纯白', '浅灰', '橙色', '深灰', '薄荷绿', '鹅黄', '天青', '雅灰', '嫩绿'],
-                    '商业空间文化墙': ['时尚黑', '金色', '纯白', '深灰', '暖黄', '曜石黑', '玫瑰金', '奶油白', '烟灰', '琥珀'],
-                    '校园文化墙': ['明亮蓝', '纯白', '绿色', '黄色', '浅灰', '天蓝', '嫩绿', '阳光黄', '橙红', '粉蓝']
-                };
-                return map[industry] || map['企业介绍文化墙'];
-            }
+<script>
+(function() {
+    // 元素引用
+    const industryBtnsContainer = document.getElementById('industryBtns');
+    const materialBtnsContainer = document.getElementById('materialBtns');
+    const styleBtnsContainer = document.getElementById('styleBtns');
+    const formStyleBtnsContainer = document.getElementById('formStyleBtns');
+    const modelBtnsContainer = document.getElementById('modelBtns');
+    const generateBtn = document.getElementById('generateBtn');
+    const promptsListDiv = document.getElementById('promptsList');
+    const countDisplay = document.getElementById('countDisplay');
+    const industryBadge = document.getElementById('industryBadge');
+    const formBadge = document.getElementById('formBadge');
+    const modelBadge = document.getElementById('modelBadge');
+    const outputPanel = document.getElementById('outputPanel');
+    const missionInput = document.getElementById('mission');
+    const visionInput = document.getElementById('vision');
+    const valuesInput = document.getElementById('values');
+    const spaceTypeInput = document.getElementById('spaceType');
 
-            function getIndustryThemeKeywords(industry) {
-                const map = {
-                    '党建文化墙': ['红色党建', '庄重肃穆', '不忘初心', '党徽国旗', '金色党徽', '红色教育', '为民服务', '忠诚担当', '旗帜引领',
-                        '光辉历程'
-                    ],
-                    '机关单位文化墙': ['庄重严谨', '公正廉洁', '服务人民', '国徽元素', '规范正式', '公信力', '依法行政', '清正廉明', '责任使命',
-                        '务实高效'
-                    ],
-                    '企业介绍文化墙': ['企业形象', '数据可视', '公司概况', '实力展示', '专业可信', '品牌调性', '核心业务', '资质荣誉', '组织架构',
-                        '发展规模'
-                    ],
-                    '品牌故事文化墙': ['品牌叙事', '故事线', '历程回顾', '情感共鸣', '文化传承', '品牌温度', '创始初心', '匠心精神', '岁月沉淀',
-                        '价值主张'
-                    ],
-                    '发展历程文化墙': ['时间轴', '里程碑', '年份节点', '发展脉络', '历史厚重', '成长轨迹', '关键转折', '辉煌成就', '阶段跨越',
-                        '未来展望'
-                    ],
-                    '团队风采文化墙': ['人物展示', '团队精神', '照片墙', '凝聚力', '活力朝气', '成员风采', '协作共赢', '榜样力量', '人文关怀',
-                        '奋斗姿态'
-                    ],
-                    '合作伙伴文化墙': ['商务合作', '品牌Logo', '共赢生态', '伙伴展示', '信任背书', '商务气质', '战略联盟', '资源共享', '合作版图',
-                        '携手共进'
-                    ],
-                    '互动版板块文化墙': ['可更换', '磁吸面板', '灵活更新', '模块设计', '互动体验', '便捷维护', '动态展示', '内容迭代', '灵活组合',
-                        '长期使用'
-                    ],
-                    '商业空间文化墙': ['商业氛围', '品牌展示', '吸引眼球', '空间装饰', '商业美学', '引流打卡', '视觉冲击', '消费场景', '潮流时尚',
-                        '沉浸体验'
-                    ],
-                    '校园文化墙': ['教育氛围', '知识传播', '活泼明快', '学生作品', '校园精神', '成长教育', '书香气息', '青春活力', '立德树人',
-                        '文化熏陶'
-                    ]
-                };
-                return map[industry] || map['企业介绍文化墙'];
-            }
+    let selectedIndustry = '党建文化墙';
+    let selectedMaterial = '烤漆板';
+    let selectedStyle = '现代简约';
+    let selectedFormStyle = '立体造型';
+    let selectedModel = 'jimeng';
 
-            // 20组不重复设计变体
-            function getDesignVariants() {
-                return [
-                    { layout: '中心聚焦对称布局', focus: '主标题以立体大字悬浮于墙面正中央',
-                        materialDesc: '整墙满铺', lighting: '顶部嵌入式暖白灯带配合防眩射灯重点照亮中央区域',
-                    colorShift: 0, themeShift: 0 },
-                    { layout: '左文右图双列布局', focus: '主标题竖排于左侧黄金分割位',
-                        materialDesc: '与浅色底板左右拼接', lighting: '左侧洗墙灯带柔和照亮文字区域，右侧漫反射光补充',
-                        colorShift: 1, themeShift: 1 },
-                    { layout: '三段式水平分割布局', focus: '中部横幅区域以超大字重展示主标题',
-                        materialDesc: '搭配细金属收边条分割', lighting: '均匀线性灯带嵌入分割线，分格独立照明',
-                    colorShift: 2, themeShift: 2 },
-                    { layout: '错落几何面板组合布局', focus: '主标题占据最大面积几何面板',
-                        materialDesc: '深浅两色面板错落拼贴', lighting: '多角度交叉射灯在面板间创造丰富立体阴影',
-                    colorShift: 3, themeShift: 3 },
-                    { layout: '竖向通体式布局', focus: '主标题以超大字体从上至下纵向排列',
-                        materialDesc: '整墙无缝满铺处理', lighting: '整墙柔和均匀洗光配合底部隐藏式地灯补光',
-                    colorShift: 4, themeShift: 4 },
-                    { layout: '悬浮层叠式布局', focus: '主标题位于最外层悬浮面板',
-                        materialDesc: '多层板面分级安装形成前后深度', lighting: '层间隐藏LED灯带勾勒每层轮廓',
-                    colorShift: 5, themeShift: 5 },
-                    { layout: '网格模块化布局', focus: '每个独立模块承载一项文字信息',
-                        materialDesc: '标准化模块拼接成完整墙面', lighting: '模块间隙透出柔和背光，整体均匀明亮',
-                    colorShift: 6, themeShift: 6 },
-                    { layout: '环绕式放射布局', focus: '中央品牌标识为视觉核心',
-                        materialDesc: '中央区域特殊材质处理形成视觉焦点', lighting: '中央聚光照射标识区域，四周散射光柔和过渡',
-                    colorShift: 7, themeShift: 7 },
-                    { layout: '极简留白式布局', focus: '文字精致小巧于大面积留白中排列',
-                        materialDesc: '素净亚光表面极致简约', lighting: '柔和漫反射环境光营造安静舒适氛围',
-                    colorShift: 8, themeShift: 8 },
-                    { layout: '时间轴叙事布局', focus: '主标题作为时间轴起点横向展开',
-                        materialDesc: '结合金属时间线贯穿墙面', lighting: '时间线内置背光，重点照亮每个时间节点',
-                    colorShift: 9, themeShift: 9 },
-                    { layout: '上下分区对比布局', focus: '上方深色区域衬托亮色主标题',
-                        materialDesc: '上下不同材质形成强烈对比', lighting: '上下分区独立照明，上方聚光下方柔光',
-                    colorShift: 0, themeShift: 1 },
-                    { layout: '棋盘格交错布局', focus: '主标题横跨多个格子形成视觉连贯',
-                        materialDesc: '深浅交替的棋盘格面板拼装', lighting: '格间透光形成规律的光影节奏',
-                    colorShift: 1, themeShift: 2 },
-                    { layout: '弧形流线布局', focus: '主标题沿弧形曲线优雅排列',
-                        materialDesc: '曲面造型面板定制加工', lighting: '弧面内嵌灯带随曲线流动',
-                    colorShift: 2, themeShift: 3 },
-                    { layout: '层叠书页式布局', focus: '主标题印于最外层"书页"',
-                        materialDesc: '多层薄板像书页般错开层叠', lighting: '页间透光模拟翻书时的光影效果',
-                    colorShift: 3, themeShift: 4 },
-                    { layout: '对角线动态布局', focus: '主标题沿对角线方向强势排列',
-                        materialDesc: '斜向分割线打破常规方正格局', lighting: '斜向灯带强化对角线视觉引导',
-                    colorShift: 4, themeShift: 5 },
-                    { layout: '框景式画框布局', focus: '主标题置于中央画框式凹槽内',
-                        materialDesc: '墙面内凹形成画框结构', lighting: '框内独立照明突出画框中的文字内容',
-                    colorShift: 5, themeShift: 6 },
-                    { layout: '柱廊式序列布局', focus: '主标题横跨多根柱面连续展示',
-                        materialDesc: '等距排列的竖向凸起柱面', lighting: '每根柱面独立洗光形成序列感',
-                    colorShift: 6, themeShift: 7 },
-                    { layout: '折叠屏风式布局', focus: '主标题分布于折叠面板的各个面',
-                        materialDesc: '多块面板以钝角折叠连接', lighting: '折叠面间光影交错层次丰富',
-                    colorShift: 7, themeShift: 8 },
-                    { layout: '涟漪扩散式布局', focus: '主标题位于涟漪中心向外扩散',
-                        materialDesc: '同心圆环状面板层层嵌套', lighting: '圆环内置灯带从中心向外亮度递减',
-                    colorShift: 8, themeShift: 9 },
-                    { layout: '拼图组合式布局', focus: '主标题文字分散于拼图块中合为一体',
-                        materialDesc: '异形拼图块紧密咬合拼接', lighting: '拼图接缝处透出微光凸显组合趣味',
-                    colorShift: 9, themeShift: 0 }
-                ];
-            }
+    function setupButtonGroup(container, activeClass, onSelect) {
+        container.addEventListener('click', function(e) {
+            const btn = e.target.closest('button');
+            if (!btn) return;
+            container.querySelectorAll('button').forEach(b => b.classList.remove('active','mat-active','model-active','form-active'));
+            btn.classList.add(activeClass);
+            onSelect(btn);
+        });
+    }
 
-            // 根据表现形式生成描述
-            function getFormStyleDescription(formStyle) {
-                const map = {
-                    '平面印刷': '采用平面印刷工艺，画面平整细腻，适合大面积图文排版输出',
-                    '自然森系风格': '融入绿植墙与木质装饰元素，营造自然清新气息',
-                    '立体造型': '采用立体字雕刻与多层次造型，增强空间深度感',
-                    '可更新材质文化墙': '采用磁吸可更换面板，方便内容灵活更新与维护',
-                    '实物展示风格': '结合实物展品与壁挂装置，形成沉浸式展示效果',
-                    '生态自然风': '运用天然材料如竹木、石材，倡导生态环保理念',
-                    '新中式': '融合中式窗格、水墨元素与现代设计，展现东方雅韵',
-                    '科技感': '加入LED发光字、透明屏幕或动态光影，凸显未来科技氛围',
-                    '体育竞技风格文化墙': '采用动感线条、运动剪影与竞技元素，传递拼搏精神',
-                    '卡通风格': '运用卡通插画与圆润字体，营造活泼亲切的视觉风格',
-                    '现代简约': '极致简约的线条与块面构成，强调功能与留白',
-                    '校园风格': '融入书本、黑板、粉笔字等校园符号，彰显青春学习氛围',
-                    '廉政党建': '以红色党建元素为主，结合廉政标语与庄严设计',
-                    '乡村文化墙': '运用乡土材料与农耕元素，展现乡村风土人情',
-                    '社区文化墙': '体现邻里和睦、社区活动等温馨主题，色彩温暖',
-                    '医院文化墙': '采用柔和色调与疗愈系设计，传达关爱与健康理念'
-                };
-                return map[formStyle] || '采用立体造型设计，层次分明';
-            }
+    setupButtonGroup(industryBtnsContainer, 'active', function(btn){
+        selectedIndustry = btn.getAttribute('data-industry');
+        industryBadge.textContent = selectedIndustry;
+        if(selectedIndustry === '党建文化墙' || selectedIndustry === '机关单位文化墙'){
+            styleBtnsContainer.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            const redBtn = styleBtnsContainer.querySelector('[data-style="庄重红色"]');
+            if(redBtn){ redBtn.classList.add('active'); selectedStyle = '庄重红色'; }
+        }
+    });
+    setupButtonGroup(materialBtnsContainer, 'mat-active', btn => selectedMaterial = btn.getAttribute('data-material'));
+    setupButtonGroup(styleBtnsContainer, 'active', btn => selectedStyle = btn.getAttribute('data-style'));
+    setupButtonGroup(formStyleBtnsContainer, 'form-active', btn => {
+        selectedFormStyle = btn.getAttribute('data-form');
+        formBadge.textContent = selectedFormStyle;
+    });
+    setupButtonGroup(modelBtnsContainer, 'model-active', btn => {
+        selectedModel = btn.getAttribute('data-model');
+        const names = {jimeng:'即梦AI', midjourney:'MidJourney', image2:'Image2', banana:'香蕉模型'};
+        modelBadge.textContent = names[selectedModel] || selectedModel;
+    });
 
-            // 生成20组提示词
-            function generatePrompts() {
-                const spaceType = spaceTypeInput.value.trim() || '单位大厅主墙面';
-                const mission = missionInput.value.trim() || '不忘初心·牢记使命';
-                const vision = visionInput.value.trim() || '建设一流团队·服务高质量发展';
-                const values = valuesInput.value.trim() || '忠诚·担当·创新·奉献';
-                const colors = getIndustryColors(selectedIndustry);
-                const themes = getIndustryThemeKeywords(selectedIndustry);
-                const variants = getDesignVariants();
-                const formDesc = getFormStyleDescription(selectedFormStyle);
-                const prompts = [];
+    function getIndustryColors(industry){
+        const map = {
+            '党建文化墙':['中国红','鎏金','米白','深红','暖黄','朱砂红','象牙白','暗金','赤红','浅驼'],
+            '机关单位文化墙':['深红','金色','米色','深蓝','纯白','藏蓝','银灰','浅金','墨绿','暖白'],
+            '企业介绍文化墙':['科技蓝','纯白','深灰','浅蓝','银灰','宝蓝','碳黑','冰白','钴蓝','雾灰'],
+            '品牌故事文化墙':['暖棕','米白','深咖','古铜','浅灰','焦糖','奶白','巧克力','亚麻','陶土'],
+            '发展历程文化墙':['深灰','金色','纯白','浅灰','深蓝','铁灰','香槟金','珍珠白','石墨','烟蓝'],
+            '团队风采文化墙':['活力橙','纯白','浅灰','深蓝','暖黄','珊瑚','天蓝','柠檬黄','草绿','奶白'],
+            '合作伙伴文化墙':['商务蓝','纯白','银灰','深灰','金色','海军蓝','铂金','雾蓝','炭灰','亮白'],
+            '互动版板块文化墙':['清新绿','纯白','浅灰','橙色','深灰','薄荷绿','鹅黄','天青','雅灰','嫩绿'],
+            '商业空间文化墙':['时尚黑','金色','纯白','深灰','暖黄','曜石黑','玫瑰金','奶油白','烟灰','琥珀'],
+            '校园文化墙':['明亮蓝','纯白','绿色','黄色','浅灰','天蓝','嫩绿','阳光黄','橙红','粉蓝']
+        };
+        return map[industry] || map['企业介绍文化墙'];
+    }
+    function getIndustryThemeKeywords(industry){
+        const map = {
+            '党建文化墙':['红色党建','庄重肃穆','不忘初心','党徽国旗','金色党徽','红色教育','为民服务','忠诚担当','旗帜引领','光辉历程'],
+            '机关单位文化墙':['庄重严谨','公正廉洁','服务人民','国徽元素','规范正式','公信力','依法行政','清正廉明','责任使命','务实高效'],
+            '企业介绍文化墙':['企业形象','数据可视','公司概况','实力展示','专业可信','品牌调性','核心业务','资质荣誉','组织架构','发展规模'],
+            '品牌故事文化墙':['品牌叙事','故事线','历程回顾','情感共鸣','文化传承','品牌温度','创始初心','匠心精神','岁月沉淀','价值主张'],
+            '发展历程文化墙':['时间轴','里程碑','年份节点','发展脉络','历史厚重','成长轨迹','关键转折','辉煌成就','阶段跨越','未来展望'],
+            '团队风采文化墙':['人物展示','团队精神','照片墙','凝聚力','活力朝气','成员风采','协作共赢','榜样力量','人文关怀','奋斗姿态'],
+            '合作伙伴文化墙':['商务合作','品牌Logo','共赢生态','伙伴展示','信任背书','商务气质','战略联盟','资源共享','合作版图','携手共进'],
+            '互动版板块文化墙':['可更换','磁吸面板','灵活更新','模块设计','互动体验','便捷维护','动态展示','内容迭代','灵活组合','长期使用'],
+            '商业空间文化墙':['商业氛围','品牌展示','吸引眼球','空间装饰','商业美学','引流打卡','视觉冲击','消费场景','潮流时尚','沉浸体验'],
+            '校园文化墙':['教育氛围','知识传播','活泼明快','学生作品','校园精神','成长教育','书香气息','青春活力','立德树人','文化熏陶']
+        };
+        return map[industry] || map['企业介绍文化墙'];
+    }
 
-                for (let i = 0; i < 20; i++) {
-                    const dv = variants[i];
-                    const mainColor = colors[dv.colorShift % colors.length];
-                    const secColor = colors[(dv.colorShift + 3) % colors.length];
-                    const accentColor = colors[(dv.colorShift + 6) % colors.length];
-                    const themeKW = themes[dv.themeShift % themes.length];
-                    const themeKW2 = themes[(dv.themeShift + 4) % themes.length];
-                    const themeKW3 = themes[(dv.themeShift + 7) % themes.length];
+    function getDesignVariants(){
+        return [
+            {layout:'中心聚焦对称布局',focus:'主标题以立体大字悬浮于墙面正中央',materialDesc:'整墙满铺',lighting:'顶部嵌入式暖白灯带配合防眩射灯重点照亮中央区域',colorShift:0,themeShift:0},
+            {layout:'左文右图双列布局',focus:'主标题竖排于左侧黄金分割位',materialDesc:'与浅色底板左右拼接',lighting:'左侧洗墙灯带柔和照亮文字区域，右侧漫反射光补充',colorShift:1,themeShift:1},
+            {layout:'三段式水平分割布局',focus:'中部横幅区域以超大字重展示主标题',materialDesc:'搭配细金属收边条分割',lighting:'均匀线性灯带嵌入分割线，分格独立照明',colorShift:2,themeShift:2},
+            {layout:'错落几何面板组合布局',focus:'主标题占据最大面积几何面板',materialDesc:'深浅两色面板错落拼贴',lighting:'多角度交叉射灯在面板间创造丰富立体阴影',colorShift:3,themeShift:3},
+            {layout:'竖向通体式布局',focus:'主标题以超大字体从上至下纵向排列',materialDesc:'整墙无缝满铺处理',lighting:'整墙柔和均匀洗光配合底部隐藏式地灯补光',colorShift:4,themeShift:4},
+            {layout:'悬浮层叠式布局',focus:'主标题位于最外层悬浮面板',materialDesc:'多层板面分级安装形成前后深度',lighting:'层间隐藏LED灯带勾勒每层轮廓',colorShift:5,themeShift:5},
+            {layout:'网格模块化布局',focus:'每个独立模块承载一项文字信息',materialDesc:'标准化模块拼接成完整墙面',lighting:'模块间隙透出柔和背光，整体均匀明亮',colorShift:6,themeShift:6},
+            {layout:'环绕式放射布局',focus:'中央品牌标识为视觉核心',materialDesc:'中央区域特殊材质处理形成视觉焦点',lighting:'中央聚光照射标识区域，四周散射光柔和过渡',colorShift:7,themeShift:7},
+            {layout:'极简留白式布局',focus:'文字精致小巧于大面积留白中排列',materialDesc:'素净亚光表面极致简约',lighting:'柔和漫反射环境光营造安静舒适氛围',colorShift:8,themeShift:8},
+            {layout:'时间轴叙事布局',focus:'主标题作为时间轴起点横向展开',materialDesc:'结合金属时间线贯穿墙面',lighting:'时间线内置背光，重点照亮每个时间节点',colorShift:9,themeShift:9},
+            {layout:'上下分区对比布局',focus:'上方深色区域衬托亮色主标题',materialDesc:'上下不同材质形成强烈对比',lighting:'上下分区独立照明，上方聚光下方柔光',colorShift:0,themeShift:1},
+            {layout:'棋盘格交错布局',focus:'主标题横跨多个格子形成视觉连贯',materialDesc:'深浅交替的棋盘格面板拼装',lighting:'格间透光形成规律的光影节奏',colorShift:1,themeShift:2},
+            {layout:'弧形流线布局',focus:'主标题沿弧形曲线优雅排列',materialDesc:'曲面造型面板定制加工',lighting:'弧面内嵌灯带随曲线流动',colorShift:2,themeShift:3},
+            {layout:'层叠书页式布局',focus:'主标题印于最外层"书页"',materialDesc:'多层薄板像书页般错开层叠',lighting:'页间透光模拟翻书时的光影效果',colorShift:3,themeShift:4},
+            {layout:'对角线动态布局',focus:'主标题沿对角线方向强势排列',materialDesc:'斜向分割线打破常规方正格局',lighting:'斜向灯带强化对角线视觉引导',colorShift:4,themeShift:5},
+            {layout:'框景式画框布局',focus:'主标题置于中央画框式凹槽内',materialDesc:'墙面内凹形成画框结构',lighting:'框内独立照明突出画框中的文字内容',colorShift:5,themeShift:6},
+            {layout:'柱廊式序列布局',focus:'主标题横跨多根柱面连续展示',materialDesc:'等距排列的竖向凸起柱面',lighting:'每根柱面独立洗光形成序列感',colorShift:6,themeShift:7},
+            {layout:'折叠屏风式布局',focus:'主标题分布于折叠面板的各个面',materialDesc:'多块面板以钝角折叠连接',lighting:'折叠面间光影交错层次丰富',colorShift:7,themeShift:8},
+            {layout:'涟漪扩散式布局',focus:'主标题位于涟漪中心向外扩散',materialDesc:'同心圆环状面板层层嵌套',lighting:'圆环内置灯带从中心向外亮度递减',colorShift:8,themeShift:9},
+            {layout:'拼图组合式布局',focus:'主标题文字分散于拼图块中合为一体',materialDesc:'异形拼图块紧密咬合拼接',lighting:'拼图接缝处透出微光凸显组合趣味',colorShift:9,themeShift:0}
+        ];
+    }
 
-                    let modelPrefix = '';
-                    if (selectedModel === 'midjourney') {
-                        modelPrefix = '建筑室内效果图：';
-                    } else if (selectedModel === 'image2') {
-                        modelPrefix = '高清室内设计渲染图：';
-                    } else if (selectedModel === 'banana') {
-                        modelPrefix = '8K超清文化墙效果图：';
-                    }
+    function getFormStyleDescription(formStyle){
+        const map = {
+            '平面印刷':'采用平面印刷工艺，画面平整细腻，适合大面积图文排版输出',
+            '自然森系风格':'融入绿植墙与木质装饰元素，营造自然清新气息',
+            '立体造型':'采用立体字雕刻与多层次造型，增强空间深度感',
+            '可更新材质文化墙':'采用磁吸可更换面板，方便内容灵活更新与维护',
+            '实物展示风格':'结合实物展品与壁挂装置，形成沉浸式展示效果',
+            '生态自然风':'运用天然材料如竹木、石材，倡导生态环保理念',
+            '新中式':'融合中式窗格、水墨元素与现代设计，展现东方雅韵',
+            '科技感':'加入LED发光字、透明屏幕或动态光影，凸显未来科技氛围',
+            '体育竞技风格文化墙':'采用动感线条、运动剪影与竞技元素，传递拼搏精神',
+            '卡通风格':'运用卡通插画与圆润字体，营造活泼亲切的视觉风格',
+            '现代简约':'极致简约的线条与块面构成，强调功能与留白',
+            '校园风格':'融入书本、黑板、粉笔字等校园符号，彰显青春学习氛围',
+            '廉政党建':'以红色党建元素为主，结合廉政标语与庄严设计',
+            '乡村文化墙':'运用乡土材料与农耕元素，展现乡村风土人情',
+            '社区文化墙':'体现邻里和睦、社区活动等温馨主题，色彩温暖',
+            '医院文化墙':'采用柔和色调与疗愈系设计，传达关爱与健康理念'
+        };
+        return map[formStyle] || '采用立体造型设计，层次分明';
+    }
 
-                    const prompt =
-                        `${modelPrefix}${selectedIndustry}文化墙设计方案，安装于${spaceType}，采用${dv.layout}。` +
-                        `主体材质选用${selectedMaterial}，${dv.materialDesc}，` +
-                        `主色调为${mainColor}，辅以${secColor}点缀，细节处运用${accentColor}提亮。` +
-                        `设计主题融合"${themeKW}"、"${themeKW2}"与"${themeKW3}"三大概念。` +
-                        `主标题"${mission}"以醒目大字${dv.focus}，` +
-                        `副标题"${vision}"以适中字号配合排列于对应区域，` +
-                        `补充内容"${values}"错落分布点缀其间。` +
-                        `表现形式：${formDesc}。` +
-                        `灯光方案为${dv.lighting}。` +
-                        `整体风格定位${selectedStyle}，文字排版舒适层次分明，` +
-                        `所有工艺均可施工落地，文化墙正立面完全展示，平视视角。`;
+    function generatePrompts(){
+        const spaceType = spaceTypeInput.value.trim() || '单位大厅主墙面';
+        const mission = missionInput.value.trim() || '不忘初心·牢记使命';
+        const vision = visionInput.value.trim() || '建设一流团队·服务高质量发展';
+        const values = valuesInput.value.trim() || '忠诚·担当·创新·奉献';
+        const colors = getIndustryColors(selectedIndustry);
+        const themes = getIndustryThemeKeywords(selectedIndustry);
+        const variants = getDesignVariants();
+        const formDesc = getFormStyleDescription(selectedFormStyle);
+        const prompts = [];
+        for(let i=0;i<20;i++){
+            const dv = variants[i];
+            const mainColor = colors[dv.colorShift % colors.length];
+            const secColor = colors[(dv.colorShift+3) % colors.length];
+            const accentColor = colors[(dv.colorShift+6) % colors.length];
+            const themeKW = themes[dv.themeShift % themes.length];
+            const themeKW2 = themes[(dv.themeShift+4) % themes.length];
+            const themeKW3 = themes[(dv.themeShift+7) % themes.length];
+            let prefix = '';
+            if(selectedModel==='midjourney') prefix='建筑室内效果图：';
+            else if(selectedModel==='image2') prefix='高清室内设计渲染图：';
+            else if(selectedModel==='banana') prefix='8K超清文化墙效果图：';
+            const prompt = `${prefix}${selectedIndustry}文化墙设计方案，安装于${spaceType}，采用${dv.layout}。主体材质选用${selectedMaterial}，${dv.materialDesc}，主色调为${mainColor}，辅以${secColor}点缀，细节处运用${accentColor}提亮。设计主题融合"${themeKW}"、"${themeKW2}"与"${themeKW3}"三大概念。主标题"${mission}"以醒目大字${dv.focus}，副标题"${vision}"以适中字号配合排列于对应区域，补充内容"${values}"错落分布点缀其间。表现形式：${formDesc}。灯光方案为${dv.lighting}。整体风格定位${selectedStyle}，文字排版舒适层次分明，所有工艺均可施工落地，文化墙正立面完全展示，平视视角。`;
+            prompts.push({prompt, material:selectedMaterial, color:mainColor, theme:themeKW, layout:dv.layout.replace('布局',''), form:selectedFormStyle});
+        }
+        return prompts;
+    }
 
-                    prompts.push({
-                        prompt: prompt,
-                        material: selectedMaterial,
-                        color: mainColor,
-                        theme: themeKW,
-                        layout: dv.layout.replace('布局', ''),
-                        form: selectedFormStyle,
-                        model: selectedModel
-                    });
-                }
-                return prompts;
-            }
+    function renderPrompts(promptObjs){
+        if(!promptObjs || promptObjs.length===0){
+            promptsListDiv.innerHTML = '<div class="empty-state">⚠️ 生成失败</div>';
+            countDisplay.innerText = '0 / 20';
+            return;
+        }
+        let html = '';
+        promptObjs.forEach((item,idx)=>{
+            const escaped = item.prompt.replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+            html += `<div class="prompt-item">
+                <div class="prompt-top-row">
+                    <span class="prompt-num">第${idx+1}组</span>
+                    <span class="prompt-tag tag-material">🪵${item.material}</span>
+                    <span class="prompt-tag tag-color">🎨${item.color}</span>
+                    <span class="prompt-tag tag-theme">📌${item.theme}</span>
+                    <span class="prompt-tag tag-layout">📐${item.layout}</span>
+                    <span class="prompt-tag tag-form">✨${item.form}</span>
+                </div>
+                <div class="prompt-text">${item.prompt}</div>
+                <button class="copy-btn" data-prompt="${escaped}">📋 复制</button>
+            </div>`;
+        });
+        promptsListDiv.innerHTML = html;
+        countDisplay.innerText = `${promptObjs.length} / 20`;
+        industryBadge.textContent = selectedIndustry;
+        formBadge.textContent = selectedFormStyle;
+        setupCopyButtons();
+        outputPanel.scrollTo({top:0, behavior:'smooth'});
+    }
 
-            function renderPrompts(promptObjs) {
-                if (!promptObjs || promptObjs.length === 0) {
-                    promptsListDiv.innerHTML =
-                        `<div class="empty-state"><div>⚠️ 生成失败</div><div style="margin-top:6px;">请检查选择后重试</div></div>`;
-                    countDisplay.innerText = '0 / 20';
-                    return;
-                }
-                let html = '';
-                promptObjs.forEach((item, idx) => {
-                    const escaped = item.prompt.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g,
-                        '&gt;');
-                    html += `
-                    <div class="prompt-item">
-                        <div class="prompt-top-row">
-                            <span class="prompt-num">第 ${idx+1} 组</span>
-                            <span class="prompt-tag tag-material">🪵 ${item.material}</span>
-                            <span class="prompt-tag tag-color">🎨 ${item.color}</span>
-                            <span class="prompt-tag tag-theme">📌 ${item.theme}</span>
-                            <span class="prompt-tag tag-layout">📐 ${item.layout}</span>
-                            <span class="prompt-tag tag-form">✨ ${item.form}</span>
-                        </div>
-                        <div class="prompt-text">${item.prompt}</div>
-                        <button class="copy-btn" data-prompt="${escaped}">📋 复制</button>
-                    </div>`;
-                });
-                promptsListDiv.innerHTML = html;
-                countDisplay.innerText = `${promptObjs.length} / 20`;
-                industryBadge.textContent = selectedIndustry;
-                formBadge.textContent = selectedFormStyle;
-                setupCopyButtons();
-                outputPanel.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            function setLoading() {
-                promptsListDiv.innerHTML =
-                    `<div class="empty-state"><div>⏳ 正在生成20组不重复提示词...</div><div style="margin-top:6px;">行业：${selectedIndustry} | 材质：${selectedMaterial} | 风格：${selectedStyle} | 表现形式：${selectedFormStyle}</div></div>`;
-                countDisplay.innerText = '0 / 20';
-            }
-
-            function setupCopyButtons() {
-                document.querySelectorAll('.copy-btn').forEach(btn => {
-                    const clone = btn.cloneNode(true);
-                    btn.parentNode.replaceChild(clone, btn);
-                    clone.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const txt = this.getAttribute('data-prompt');
-                        if (!txt) return;
-                        navigator.clipboard.writeText(txt).then(() => {
-                            const orig = this.innerHTML;
-                            this.innerHTML = '✓ 已复制';
-                            this.classList.add('copied');
-                            setTimeout(() => { this.innerHTML = orig;
-                                this.classList.remove('copied'); }, 1800);
-                        }).catch(() => {
-                            const ta = document.createElement('textarea');
-                            ta.value = txt;
-                            ta.style.cssText = 'position:fixed;opacity:0;';
-                            document.body.appendChild(ta);
-                            ta.select();
-                            try { document.execCommand('copy'); } catch (er) {}
-                            document.body.removeChild(ta);
-                            const orig = this.innerHTML;
-                            this.innerHTML = '✓ 已复制';
-                            this.classList.add('copied');
-                            setTimeout(() => { this.innerHTML = orig;
-                                this.classList.remove('copied'); }, 1800);
-                        });
-                    });
-                });
-            }
-
-            function handleGenerate() {
-                setLoading();
-                setTimeout(() => {
-                    try {
-                        const prompts = generatePrompts();
-                        renderPrompts(prompts);
-                    } catch (e) {
-                        promptsListDiv.innerHTML = `<div class="empty-state"><div>❌ 生成出错</div></div>`;
-                        countDisplay.innerText = '0 / 20';
-                        console.error(e);
-                    }
-                }, 100);
-            }
-
-            generateBtn.addEventListener('click', handleGenerate);
-            window.addEventListener('DOMContentLoaded', () => {
-                setTimeout(() => handleGenerate(), 220);
-            });
-            document.querySelectorAll('.input-group input').forEach(inp => {
-                inp.addEventListener('keydown', function(e) {
-                    if (e.ctrlKey && e.key === 'Enter') {
-                        e.preventDefault();
-                        handleGenerate();
-                    }
+    function setupCopyButtons(){
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            const clone = btn.cloneNode(true);
+            btn.parentNode.replaceChild(clone, btn);
+            clone.addEventListener('click', function(e){
+                e.preventDefault();
+                const txt = this.getAttribute('data-prompt');
+                navigator.clipboard.writeText(txt).then(()=>{
+                    const orig = this.innerHTML;
+                    this.innerHTML = '✓ 已复制';
+                    this.classList.add('copied');
+                    setTimeout(()=>{ this.innerHTML = orig; this.classList.remove('copied'); },1800);
+                }).catch(()=>{
+                    const ta = document.createElement('textarea');
+                    ta.value = txt; ta.style.cssText='position:fixed;opacity:0;';
+                    document.body.appendChild(ta); ta.select();
+                    try{document.execCommand('copy');}catch(er){}
+                    document.body.removeChild(ta);
+                    const orig = this.innerHTML;
+                    this.innerHTML = '✓ 已复制';
+                    this.classList.add('copied');
+                    setTimeout(()=>{ this.innerHTML = orig; this.classList.remove('copied'); },1800);
                 });
             });
-        })();
-    </script>
+        });
+    }
+
+    function handleGenerate(){
+        promptsListDiv.innerHTML = '<div class="empty-state">⏳ 正在生成20组不重复提示词...</div>';
+        countDisplay.innerText = '0 / 20';
+        setTimeout(()=>{
+            try{
+                const prompts = generatePrompts();
+                renderPrompts(prompts);
+            }catch(e){
+                promptsListDiv.innerHTML = '<div class="empty-state">❌ 生成出错</div>';
+                console.error(e);
+            }
+        },80);
+    }
+
+    generateBtn.addEventListener('click', handleGenerate);
+    window.addEventListener('DOMContentLoaded', ()=> setTimeout(handleGenerate, 200));
+    document.querySelectorAll('.input-group input').forEach(inp => {
+        inp.addEventListener('keydown', function(e){
+            if(e.ctrlKey && e.key==='Enter'){ e.preventDefault(); handleGenerate(); }
+        });
+    });
+})();
+</script>
 </body>
 </html>
