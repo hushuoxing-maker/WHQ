@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文化墙专业提示词生成器 · 20组方案 · 完整色板</title>
+  <title>文化墙专业提示词生成器 · 20组方案 · 完整行业与材质</title>
   <style>
     :root {
       --bg: #f0ede8; --card-bg: #fefefc; --header-bg: #1c2533; --accent: #b8956a;
@@ -36,7 +36,7 @@
     }
     .main{display:flex;flex-wrap:wrap;}
     .input-panel{
-      flex:1 1 540px;min-width:440px;background:#fcfbf8;padding:16px;
+      flex:1 1 560px;min-width:460px;background:#fcfbf8;padding:16px;
       border-right:1px solid #eaedf0;display:flex;flex-direction:column;gap:12px;
       max-height:96vh;overflow-y:auto;
     }
@@ -136,10 +136,6 @@
     }
     summary:hover{color:#1e2a36;}
     .hint-text{font-size:10px;color:#999;margin-left:4px;font-weight:400;}
-    @media(max-width:950px){
-      .input-panel{border-right:none;border-bottom:1px solid #eaedf0;flex:1 1 100%;max-height:none;}
-      .output-panel{flex:1 1 100%;max-height:650px;}
-    }
   </style>
 </head>
 <body>
@@ -147,7 +143,7 @@
   <div class="header">
     <div>
       <h1>文化墙专业提示词生成器 · 20组方案</h1>
-      <span class="subtitle">完整主色/辅助色 · 严格输出 · 8K高清 · 不重复</span>
+      <span class="subtitle">完整行业·完整材质·完整色板 · 严格输出 · 8K高清</span>
     </div>
     <span class="header-badge">🏗️ 即梦AI / MidJourney / Image2 / 香蕉模型</span>
   </div>
@@ -175,31 +171,73 @@
         </div>
       </div>
 
-      <!-- 行业类型 -->
+      <!-- 行业类型（完整恢复） -->
       <details open>
         <summary>🏢 行业类型 <span class="hint-text">（可选，可不选）</span></summary>
         <div style="margin-bottom:6px;">
           <button class="tag-btn none-active" id="noIndustryBtn" data-industry="">不指定行业</button>
         </div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <div><div style="font-size:11px;font-weight:600;">企业办公</div><div class="btn-group-grid col4" data-industry-group>
-            <button class="tag-btn" data-industry="科技公司">科技</button><button class="tag-btn" data-industry="互联网">互联网</button><button class="tag-btn" data-industry="电商">电商</button><button class="tag-btn" data-industry="文化传媒">传媒</button>
-          </div></div>
-          <div><div style="font-size:11px;font-weight:600;">教育校园</div><div class="btn-group-grid col4" data-industry-group>
-            <button class="tag-btn" data-industry="幼儿园">幼儿园</button><button class="tag-btn" data-industry="中小学">中小学</button><button class="tag-btn" data-industry="大学学院">大学</button><button class="tag-btn" data-industry="培训机构">培训</button>
-          </div></div>
-          <div><div style="font-size:11px;font-weight:600;">政府事业</div><div class="btn-group-grid col4" data-industry-group>
-            <button class="tag-btn" data-industry="党群党建">党建</button><button class="tag-btn" data-industry="政务大厅">政务</button><button class="tag-btn" data-industry="医院">医院</button><button class="tag-btn" data-industry="国企单位">国企</button>
-          </div></div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div><div style="font-size:12px;font-weight:600;color:#7a6e5c;">🏢 企业办公类</div>
+            <div class="btn-group-grid col4" data-industry-group>
+              <button class="tag-btn" data-industry="科技公司">科技公司</button><button class="tag-btn" data-industry="互联网">互联网</button><button class="tag-btn" data-industry="电商">电商</button><button class="tag-btn" data-industry="文化传媒">文化传媒</button><button class="tag-btn" data-industry="广告设计">广告设计</button><button class="tag-btn" data-industry="建筑工程">建筑工程</button><button class="tag-btn" data-industry="装修装饰">装修装饰</button><button class="tag-btn" data-industry="房地产">房地产</button><button class="tag-btn" data-industry="物业公司">物业公司</button><button class="tag-btn" data-industry="金融理财">金融理财</button><button class="tag-btn" data-industry="律所事务所">律所事务所</button><button class="tag-btn" data-industry="咨询公司">咨询公司</button><button class="tag-btn" data-industry="贸易商贸">贸易商贸</button><button class="tag-btn" data-industry="制造业工厂">制造业工厂</button><button class="tag-btn" data-industry="物流供应链">物流供应链</button>
+            </div>
+          </div>
+          <div><div style="font-size:12px;font-weight:600;color:#7a6e5c;">🎓 教育校园类</div>
+            <div class="btn-group-grid col4" data-industry-group>
+              <button class="tag-btn" data-industry="幼儿园">幼儿园</button><button class="tag-btn" data-industry="中小学">中小学</button><button class="tag-btn" data-industry="培训机构">培训机构</button><button class="tag-btn" data-industry="艺考画室">艺考画室</button><button class="tag-btn" data-industry="早教中心">早教中心</button><button class="tag-btn" data-industry="职业学校">职业学校</button><button class="tag-btn" data-industry="大学学院">大学学院</button><button class="tag-btn" data-industry="托管班">托管班</button><button class="tag-btn" data-industry="少儿兴趣班">少儿兴趣班</button>
+            </div>
+          </div>
+          <div><div style="font-size:12px;font-weight:600;color:#7a6e5c;">🏛️ 政府事业单位</div>
+            <div class="btn-group-grid col4" data-industry-group>
+              <button class="tag-btn" data-industry="街道社区">街道社区</button><button class="tag-btn" data-industry="党群党建">党群党建</button><button class="tag-btn" data-industry="政务大厅">政务大厅</button><button class="tag-btn" data-industry="派出所">派出所</button><button class="tag-btn" data-industry="卫生院">卫生院</button><button class="tag-btn" data-industry="医院">医院</button><button class="tag-btn" data-industry="国企单位">国企单位</button><button class="tag-btn" data-industry="工会">工会</button><button class="tag-btn" data-industry="退役军人服务站">退役军人服务站</button><button class="tag-btn" data-industry="社区党群服务中心">社区党群服务中心</button>
+            </div>
+          </div>
+          <div><div style="font-size:12px;font-weight:600;color:#7a6e5c;">🛍️ 商业门店类</div>
+            <div class="btn-group-grid col4" data-industry-group>
+              <button class="tag-btn" data-industry="美容院">美容院</button><button class="tag-btn" data-industry="养生馆">养生馆</button><button class="tag-btn" data-industry="健身房">健身房</button><button class="tag-btn" data-industry="瑜伽馆">瑜伽馆</button><button class="tag-btn" data-industry="奶茶餐饮">奶茶餐饮</button><button class="tag-btn" data-industry="酒店民宿">酒店民宿</button><button class="tag-btn" data-industry="理发店">理发店</button><button class="tag-btn" data-industry="服装店">服装店</button><button class="tag-btn" data-industry="宠物店">宠物店</button><button class="tag-btn" data-industry="KTV">KTV</button><button class="tag-btn" data-industry="酒吧">酒吧</button><button class="tag-btn" data-industry="茶楼会所">茶楼会所</button>
+            </div>
+          </div>
+          <div><div style="font-size:12px;font-weight:600;color:#7a6e5c;">⚕️ 医疗健康类</div>
+            <div class="btn-group-grid col4" data-industry-group>
+              <button class="tag-btn" data-industry="综合医院">综合医院</button><button class="tag-btn" data-industry="私立诊所">私立诊所</button><button class="tag-btn" data-industry="口腔牙科">口腔牙科</button><button class="tag-btn" data-industry="医美整形">医美整形</button><button class="tag-btn" data-industry="体检中心">体检中心</button><button class="tag-btn" data-industry="养老院">养老院</button><button class="tag-btn" data-industry="康复中心">康复中心</button>
+            </div>
+          </div>
+          <div><div style="font-size:12px;font-weight:600;color:#7a6e5c;">📌 其他行业</div>
+            <div class="btn-group-grid col4" data-industry-group>
+              <button class="tag-btn" data-industry="网红直播间">网红直播间</button><button class="tag-btn" data-industry="工作室">工作室</button><button class="tag-btn" data-industry="私人办公室">私人办公室</button><button class="tag-btn" data-industry="会所">会所</button><button class="tag-btn" data-industry="寺庙文旅">寺庙文旅</button><button class="tag-btn" data-industry="产业园孵化器">产业园孵化器</button><button class="tag-btn" data-industry="工业园展厅">工业园展厅</button>
+            </div>
+          </div>
         </div>
       </details>
 
-      <!-- 材质选择 -->
+      <!-- 材质选择（完整恢复） -->
       <details open>
         <summary>🪵 材质选择 <span class="hint-text">（可多选，可不选）</span></summary>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <div><div style="font-size:11px;font-weight:600;">基础板材/金属/木质/其他</div><div class="btn-group-grid col4" data-material-group>
-            <button class="tag-btn" data-material="亚克力透明">亚克力透明</button><button class="tag-btn" data-material="亚克力磨砂">亚克力磨砂</button><button class="tag-btn" data-material="PVC雪弗板">PVC雪弗板</button><button class="tag-btn" data-material="不锈钢拉丝">不锈钢拉丝</button><button class="tag-btn" data-material="不锈钢镜面">不锈钢镜面</button><button class="tag-btn" data-material="铝板雕刻">铝板雕刻</button><button class="tag-btn" data-material="胡桃木">胡桃木</button><button class="tag-btn" data-material="木格栅">木格栅</button><button class="tag-btn" data-material="大理石">大理石</button><button class="tag-btn" data-material="微水泥">微水泥</button>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div><div style="font-size:12px;font-weight:600;">💎 基础板材类</div><div class="btn-group-grid col4" data-material-group>
+            <button class="tag-btn" data-material="亚克力透明">亚克力透明</button><button class="tag-btn" data-material="亚克力磨砂">亚克力磨砂</button><button class="tag-btn" data-material="亚克力镜面">亚克力镜面</button><button class="tag-btn" data-material="亚克力UV打印">亚克力UV打印</button><button class="tag-btn" data-material="亚克力夹层发光">亚克力夹层发光</button><button class="tag-btn" data-material="PVC雪弗板">PVC雪弗板</button><button class="tag-btn" data-material="KT板">KT板</button><button class="tag-btn" data-material="KD板">KD板</button><button class="tag-btn" data-material="安迪板">安迪板</button><button class="tag-btn" data-material="高密度PVC板">高密度PVC板</button><button class="tag-btn" data-material="铝塑板">铝塑板</button><button class="tag-btn" data-material="木塑板">木塑板</button><button class="tag-btn" data-material="密度板">密度板</button><button class="tag-btn" data-material="欧松板">欧松板</button><button class="tag-btn" data-material="多层夹板">多层夹板</button><button class="tag-btn" data-material="石膏板">石膏板</button><button class="tag-btn" data-material="防火板">防火板</button><button class="tag-btn" data-material="波纹板">波纹板</button><button class="tag-btn" data-material="蜂窝板">蜂窝板</button><button class="tag-btn" data-material="碳晶板">碳晶板</button><button class="tag-btn" data-material="竹木纤维板">竹木纤维板</button><button class="tag-btn" data-material="岩板">岩板</button><button class="tag-btn" data-material="水泥纤维板">水泥纤维板</button><button class="tag-btn" data-material="穿孔吸音板">穿孔吸音板</button><button class="tag-btn" data-material="生态木板">生态木板</button><button class="tag-btn" data-material="木纹饰面板">木纹饰面板</button><button class="tag-btn" data-material="PET吸音板">PET吸音板</button><button class="tag-btn" data-material="UV装饰板">UV装饰板</button>
+          </div></div>
+          <div><div style="font-size:12px;font-weight:600;">🔩 金属材质类</div><div class="btn-group-grid col4" data-material-group>
+            <button class="tag-btn" data-material="不锈钢拉丝">不锈钢拉丝</button><button class="tag-btn" data-material="不锈钢镜面">不锈钢镜面</button><button class="tag-btn" data-material="黑钛不锈钢">黑钛不锈钢</button><button class="tag-btn" data-material="香槟金不锈钢">香槟金不锈钢</button><button class="tag-btn" data-material="黄铜">黄铜</button><button class="tag-btn" data-material="紫铜">紫铜</button><button class="tag-btn" data-material="铝板雕刻">铝板雕刻</button><button class="tag-btn" data-material="铝板冲孔">铝板冲孔</button><button class="tag-btn" data-material="铝单板">铝单板</button><button class="tag-btn" data-material="铁艺烤漆">铁艺烤漆</button><button class="tag-btn" data-material="镀锌钢板">镀锌钢板</button><button class="tag-btn" data-material="金属蚀刻板">金属蚀刻板</button><button class="tag-btn" data-material="金属浮雕板">金属浮雕板</button><button class="tag-btn" data-material="镜面钛金">镜面钛金</button><button class="tag-btn" data-material="拉丝钛金">拉丝钛金</button><button class="tag-btn" data-material="金属网格">金属网格</button><button class="tag-btn" data-material="金属格栅">金属格栅</button><button class="tag-btn" data-material="金属线条">金属线条</button><button class="tag-btn" data-material="阳极氧化铝">阳极氧化铝</button><button class="tag-btn" data-material="金属镂空雕花">金属镂空雕花</button><button class="tag-btn" data-material="电镀金属">电镀金属</button><button class="tag-btn" data-material="做旧铁艺">做旧铁艺</button><button class="tag-btn" data-material="工业风锈铁板">工业风锈铁板</button><button class="tag-btn" data-material="波浪金属板">波浪金属板</button>
+          </div></div>
+          <div><div style="font-size:12px;font-weight:600;">🪵 木质材质类</div><div class="btn-group-grid col4" data-material-group>
+            <button class="tag-btn" data-material="原木板">原木板</button><button class="tag-btn" data-material="胡桃木">胡桃木</button><button class="tag-btn" data-material="白橡木">白橡木</button><button class="tag-btn" data-material="樱桃木">樱桃木</button><button class="tag-btn" data-material="深色木饰面">深色木饰面</button><button class="tag-btn" data-material="浅木纹饰面">浅木纹饰面</button><button class="tag-btn" data-material="科技木皮">科技木皮</button><button class="tag-btn" data-material="木格栅">木格栅</button><button class="tag-btn" data-material="炭烧木">炭烧木</button><button class="tag-btn" data-material="防腐木">防腐木</button><button class="tag-btn" data-material="木纹铝板">木纹铝板</button><button class="tag-btn" data-material="雕刻木板">雕刻木板</button><button class="tag-btn" data-material="实木拼接">实木拼接</button><button class="tag-btn" data-material="木纹吸音板">木纹吸音板</button><button class="tag-btn" data-material="新中式木雕">新中式木雕</button><button class="tag-btn" data-material="木纹UV板">木纹UV板</button><button class="tag-btn" data-material="竹编饰面">竹编饰面</button><button class="tag-btn" data-material="木质镂空">木质镂空</button><button class="tag-btn" data-material="榫卯结构木艺">榫卯结构木艺</button>
+          </div></div>
+          <div><div style="font-size:12px;font-weight:600;">🪨 石材类</div><div class="btn-group-grid col4" data-material-group>
+            <button class="tag-btn" data-material="大理石">大理石</button><button class="tag-btn" data-material="爵士白">爵士白</button><button class="tag-btn" data-material="鱼肚白">鱼肚白</button><button class="tag-btn" data-material="岩板">岩板</button><button class="tag-btn" data-material="水磨石">水磨石</button><button class="tag-btn" data-material="微水泥">微水泥</button><button class="tag-btn" data-material="洞石">洞石</button><button class="tag-btn" data-material="火山岩">火山岩</button><button class="tag-btn" data-material="石英石">石英石</button><button class="tag-btn" data-material="人造石">人造石</button><button class="tag-btn" data-material="青石板">青石板</button><button class="tag-btn" data-material="仿古石材">仿古石材</button><button class="tag-btn" data-material="石材浮雕">石材浮雕</button><button class="tag-btn" data-material="玉石透光板">玉石透光板</button>
+          </div></div>
+          <div><div style="font-size:12px;font-weight:600;">🔮 玻璃类</div><div class="btn-group-grid col4" data-material-group>
+            <button class="tag-btn" data-material="超白玻璃">超白玻璃</button><button class="tag-btn" data-material="长虹玻璃">长虹玻璃</button><button class="tag-btn" data-material="磨砂玻璃">磨砂玻璃</button><button class="tag-btn" data-material="烤漆玻璃">烤漆玻璃</button><button class="tag-btn" data-material="夹胶玻璃">夹胶玻璃</button><button class="tag-btn" data-material="智能调光玻璃">智能调光玻璃</button><button class="tag-btn" data-material="镜面玻璃">镜面玻璃</button><button class="tag-btn" data-material="彩绘玻璃">彩绘玻璃</button><button class="tag-btn" data-material="艺术玻璃">艺术玻璃</button><button class="tag-btn" data-material="水纹玻璃">水纹玻璃</button><button class="tag-btn" data-material="雕刻玻璃">雕刻玻璃</button>
+          </div></div>
+          <div><div style="font-size:12px;font-weight:600;">💡 发光材质类</div><div class="btn-group-grid col4" data-material-group>
+            <button class="tag-btn" data-material="LED背发光">LED背发光</button><button class="tag-btn" data-material="灯带嵌入">灯带嵌入</button><button class="tag-btn" data-material="霓虹灯">霓虹灯</button><button class="tag-btn" data-material="柔性灯膜">柔性灯膜</button><button class="tag-btn" data-material="导光板">导光板</button><button class="tag-btn" data-material="发光字">发光字</button><button class="tag-btn" data-material="无极灯箱">无极灯箱</button><button class="tag-btn" data-material="水晶发光">水晶发光</button><button class="tag-btn" data-material="边缘发光亚克力">边缘发光亚克力</button><button class="tag-btn" data-material="OLED透明屏">OLED透明屏</button><button class="tag-btn" data-material="LED点阵屏">LED点阵屏</button><button class="tag-btn" data-material="数字光栅屏">数字光栅屏</button><button class="tag-btn" data-material="幻彩灯膜">幻彩灯膜</button>
+          </div></div>
+          <div><div style="font-size:12px;font-weight:600;">🧶 布艺软装类</div><div class="btn-group-grid col4" data-material-group>
+            <button class="tag-btn" data-material="艺术布纹">艺术布纹</button><button class="tag-btn" data-material="硬包">硬包</button><button class="tag-btn" data-material="软包">软包</button><button class="tag-btn" data-material="皮革硬包">皮革硬包</button><button class="tag-btn" data-material="麂皮绒">麂皮绒</button><button class="tag-btn" data-material="编织纹理">编织纹理</button><button class="tag-btn" data-material="麻布纹">麻布纹</button><button class="tag-btn" data-material="毛毡吸音">毛毡吸音</button><button class="tag-btn" data-material="布艺灯箱">布艺灯箱</button><button class="tag-btn" data-material="布幔装置">布幔装置</button>
+          </div></div>
+          <div><div style="font-size:12px;font-weight:600;">✨ 网红特殊材质类</div><div class="btn-group-grid col4" data-material-group>
+            <button class="tag-btn" data-material="镜面无限反射">镜面无限反射</button><button class="tag-btn" data-material="水波纹不锈钢">水波纹不锈钢</button><button class="tag-btn" data-material="幻彩渐变板">幻彩渐变板</button><button class="tag-btn" data-material="镭射板">镭射板</button><button class="tag-btn" data-material="电镀渐变">电镀渐变</button><button class="tag-btn" data-material="流光树脂">流光树脂</button><button class="tag-btn" data-material="冰裂纹树脂">冰裂纹树脂</button><button class="tag-btn" data-material="透明树脂封装">透明树脂封装</button><button class="tag-btn" data-material="亚克力云朵">亚克力云朵</button><button class="tag-btn" data-material="液态金属">液态金属</button><button class="tag-btn" data-material="镜面波浪板">镜面波浪板</button><button class="tag-btn" data-material="3D打印装置">3D打印装置</button><button class="tag-btn" data-material="AI参数化曲面">AI参数化曲面</button><button class="tag-btn" data-material="数字像素砖">数字像素砖</button><button class="tag-btn" data-material="赛博灯膜">赛博灯膜</button><button class="tag-btn" data-material="发光云石">发光云石</button><button class="tag-btn" data-material="动态电子墨水屏">动态电子墨水屏</button><button class="tag-btn" data-material="机械互动装置">机械互动装置</button><button class="tag-btn" data-material="裸眼3D结构">裸眼3D结构</button><button class="tag-btn" data-material="光栅动态画">光栅动态画</button><button class="tag-btn" data-material="悬浮磁吸结构">悬浮磁吸结构</button><button class="tag-btn" data-material="光影互动墙">光影互动墙</button><button class="tag-btn" data-material="AR互动墙">AR互动墙</button><button class="tag-btn" data-material="AI感应互动屏">AI感应互动屏</button>
           </div></div>
         </div>
       </details>
@@ -254,15 +292,33 @@
         </div>
       </details>
 
-      <!-- 风格倾向 -->
+      <!-- 风格倾向（完整） -->
       <details open>
         <summary>🖼️ 风格倾向 <span class="hint-text">（可多选，可不选·选后20组统一风格）</span></summary>
         <div style="display:flex;flex-direction:column;gap:6px;">
-          <div><div style="font-size:11px;font-weight:600;">企业商务</div><div class="btn-group-grid col4">
-            <button class="tag-btn" data-style="现代简约">现代简约</button><button class="tag-btn" data-style="轻奢高级">轻奢高级</button><button class="tag-btn" data-style="商务科技">商务科技</button><button class="tag-btn" data-style="国际极简">国际极简</button>
+          <div><div style="font-size:11px;font-weight:600;">企业商务类</div><div class="btn-group-grid col4">
+            <button class="tag-btn" data-style="现代简约">现代简约</button><button class="tag-btn" data-style="轻奢高级">轻奢高级</button><button class="tag-btn" data-style="商务科技">商务科技</button><button class="tag-btn" data-style="国际极简">国际极简</button><button class="tag-btn" data-style="企业展厅风">企业展厅风</button><button class="tag-btn" data-style="高端品牌风">高端品牌风</button><button class="tag-btn" data-style="金融商务风">金融商务风</button><button class="tag-btn" data-style="互联网科技风">互联网科技风</button><button class="tag-btn" data-style="AI未来风">AI未来风</button><button class="tag-btn" data-style="数字企业风">数字企业风</button>
           </div></div>
-          <div><div style="font-size:11px;font-weight:600;">其他风格</div><div class="btn-group-grid col4">
-            <button class="tag-btn" data-style="党建风">党建风</button><button class="tag-btn" data-style="新中式">新中式</button><button class="tag-btn" data-style="国潮风">国潮风</button><button class="tag-btn" data-style="工业风">工业风</button><button class="tag-btn" data-style="赛博朋克">赛博朋克</button><button class="tag-btn" data-style="森系自然">森系自然</button>
+          <div><div style="font-size:11px;font-weight:600;">党建政务类</div><div class="btn-group-grid col4">
+            <button class="tag-btn" data-style="党建风">党建风</button><button class="tag-btn" data-style="红色文化">红色文化</button><button class="tag-btn" data-style="新中国风">新中国风</button><button class="tag-btn" data-style="政务文化墙">政务文化墙</button><button class="tag-btn" data-style="国企文化风">国企文化风</button><button class="tag-btn" data-style="红金庄严风">红金庄严风</button><button class="tag-btn" data-style="人民大会堂风">人民大会堂风</button><button class="tag-btn" data-style="政策宣传风">政策宣传风</button>
+          </div></div>
+          <div><div style="font-size:11px;font-weight:600;">校园教育类</div><div class="btn-group-grid col4">
+            <button class="tag-btn" data-style="校园文化">校园文化</button><button class="tag-btn" data-style="书香风">书香风</button><button class="tag-btn" data-style="青春活力">青春活力</button><button class="tag-btn" data-style="学术科技风">学术科技风</button><button class="tag-btn" data-style="幼儿园卡通">幼儿园卡通</button><button class="tag-btn" data-style="国学文化">国学文化</button><button class="tag-btn" data-style="清华学院风">清华学院风</button><button class="tag-btn" data-style="实验室科技风">实验室科技风</button>
+          </div></div>
+          <div><div style="font-size:11px;font-weight:600;">国潮东方类</div><div class="btn-group-grid col4">
+            <button class="tag-btn" data-style="新中式">新中式</button><button class="tag-btn" data-style="东方禅意">东方禅意</button><button class="tag-btn" data-style="国潮风">国潮风</button><button class="tag-btn" data-style="宋式美学">宋式美学</button><button class="tag-btn" data-style="唐风">唐风</button><button class="tag-btn" data-style="汉唐文化">汉唐文化</button><button class="tag-btn" data-style="水墨东方">水墨东方</button><button class="tag-btn" data-style="非遗文化风">非遗文化风</button><button class="tag-btn" data-style="中式园林风">中式园林风</button>
+          </div></div>
+          <div><div style="font-size:11px;font-weight:600;">工业科技类</div><div class="btn-group-grid col4">
+            <button class="tag-btn" data-style="工业风">工业风</button><button class="tag-btn" data-style="赛博朋克">赛博朋克</button><button class="tag-btn" data-style="机械未来">机械未来</button><button class="tag-btn" data-style="数字科技">数字科技</button><button class="tag-btn" data-style="元宇宙风">元宇宙风</button><button class="tag-btn" data-style="AI参数化">AI参数化</button><button class="tag-btn" data-style="太空舱风">太空舱风</button><button class="tag-btn" data-style="科幻实验室">科幻实验室</button><button class="tag-btn" data-style="黑科技风">黑科技风</button>
+          </div></div>
+          <div><div style="font-size:11px;font-weight:600;">年轻潮流类</div><div class="btn-group-grid col4">
+            <button class="tag-btn" data-style="潮玩风">潮玩风</button><button class="tag-btn" data-style="INS网红风">INS网红风</button><button class="tag-btn" data-style="多巴胺风">多巴胺风</button><button class="tag-btn" data-style="Y2K风">Y2K风</button><button class="tag-btn" data-style="蒸汽波风">蒸汽波风</button><button class="tag-btn" data-style="涂鸦街头">涂鸦街头</button><button class="tag-btn" data-style="朋克风">朋克风</button><button class="tag-btn" data-style="像素风">像素风</button><button class="tag-btn" data-style="二次元风">二次元风</button>
+          </div></div>
+          <div><div style="font-size:11px;font-weight:600;">商业空间类</div><div class="btn-group-grid col4">
+            <button class="tag-btn" data-style="奢侈品展厅风">奢侈品展厅</button><button class="tag-btn" data-style="美容院轻奢风">美容院轻奢</button><button class="tag-btn" data-style="医美高级风">医美高级</button><button class="tag-btn" data-style="咖啡艺术风">咖啡艺术</button><button class="tag-btn" data-style="潮牌买手店风">潮牌买手店</button><button class="tag-btn" data-style="新零售体验风">新零售体验</button><button class="tag-btn" data-style="打卡互动风">打卡互动</button>
+          </div></div>
+          <div><div style="font-size:11px;font-weight:600;">自然生态类</div><div class="btn-group-grid col4">
+            <button class="tag-btn" data-style="森系自然">森系自然</button><button class="tag-btn" data-style="原木生态">原木生态</button><button class="tag-btn" data-style="可持续环保风">可持续环保</button><button class="tag-btn" data-style="山野露营风">山野露营</button><button class="tag-btn" data-style="生态艺术风">生态艺术</button><button class="tag-btn" data-style="自然疗愈风">自然疗愈</button>
           </div></div>
         </div>
       </details>
@@ -314,7 +370,7 @@
       <div class="prompts-grid" id="promptsList">
         <div class="empty-state" style="text-align:center;padding:40px;">选择选项后点击生成按钮</div>
       </div>
-      <div class="footer-note">⚡ 严格按选择输出 · 20组完全不同 · 8K高清 · 完整色板</div>
+      <div class="footer-note">⚡ 严格按选择输出 · 20组完全不同 · 8K高清 · 完整行业与材质</div>
     </div>
   </div>
 </div>
@@ -358,7 +414,7 @@
     }
   }
 
-  // 行业单选（可取消）
+  // 行业单选
   const noIndustryBtn = document.getElementById('noIndustryBtn');
   const industryBtns = document.querySelectorAll('[data-industry-group] .tag-btn');
   noIndustryBtn.addEventListener('click', function() {
@@ -377,7 +433,7 @@
     });
   });
 
-  // 材质
+  // 材质多选
   document.querySelectorAll('[data-material-group] .tag-btn').forEach(btn => {
     btn.addEventListener('click', () => toggleBtn(btn, state.materials, 'mat-active'));
   });
@@ -415,7 +471,6 @@
   document.querySelectorAll('.tag-btn[data-form]').forEach(btn => btn.addEventListener('click', () => toggleBtn(btn, state.forms, 'active')));
   document.querySelectorAll('.tag-btn[data-mood]').forEach(btn => btn.addEventListener('click', () => toggleBtn(btn, state.moods, 'active')));
 
-  // 生成
   function generatePrompts() {
     const mission = document.getElementById('mission').value.trim();
     const vision = document.getElementById('vision').value.trim();
@@ -435,40 +490,40 @@
     const moods = Array.from(state.moods);
 
     const layouts = [
-      {layout:'中心聚焦对称式布局',focus:'主标题立体大字居中',light:'顶部射灯聚焦'},
-      {layout:'左文右图双列布局',focus:'主标题竖排左侧',light:'左侧洗墙灯带'},
-      {layout:'三段式水平分割',focus:'中段横幅展示',light:'线性灯带分割'},
-      {layout:'错落几何面板组合',focus:'主标题占据最大面板',light:'多角度射灯'},
-      {layout:'竖向通体式布局',focus:'超大字体纵向排列',light:'整墙均匀洗光'},
-      {layout:'悬浮层叠式布局',focus:'主标题在最外层浮板',light:'层间隐藏LED'},
-      {layout:'网格模块化布局',focus:'每个模块独立文字',light:'间隙背光'},
-      {layout:'环绕式放射布局',focus:'中央LOGO核心',light:'中央聚光散射'},
-      {layout:'极简留白式布局',focus:'文字小巧精致',light:'柔和漫反射'},
-      {layout:'时间轴叙事布局',focus:'主标题起点横向展开',light:'金属线背光'},
-      {layout:'上下分区对比布局',focus:'上方深色衬亮',light:'上下分区照明'},
-      {layout:'棋盘格交错布局',focus:'标题横跨多格',light:'格间透光'},
-      {layout:'弧形流线型布局',focus:'沿曲线优雅排列',light:'弧面内嵌灯带'},
-      {layout:'层叠书页式布局',focus:'印于最外层书页',light:'页间透光'},
-      {layout:'对角线动态布局',focus:'对角线强势排列',light:'斜向灯带'},
-      {layout:'框景式画框布局',focus:'中央凹槽内',light:'框内独立照明'},
-      {layout:'柱廊式序列布局',focus:'横跨多柱展示',light:'每柱独立洗光'},
-      {layout:'折叠屏风式布局',focus:'分布于各折叠面',light:'折叠光影交错'},
-      {layout:'涟漪扩散式布局',focus:'同心圆中心',light:'亮度递减'},
-      {layout:'拼图组合式布局',focus:'分散于拼图块',light:'接缝透光'}
+      {layout:'中心聚焦对称式',focus:'立体大字居中',light:'顶部射灯'},
+      {layout:'左文右图双列式',focus:'主标题竖排左侧',light:'左侧洗墙灯'},
+      {layout:'三段式水平分割',focus:'中段横幅展示',light:'线性灯带'},
+      {layout:'错落几何面板组合',focus:'最大面板',light:'多角度射灯'},
+      {layout:'竖向通体式',focus:'超大纵向字体',light:'均匀洗光'},
+      {layout:'悬浮层叠式',focus:'最外层浮板',light:'层间LED'},
+      {layout:'网格模块化',focus:'独立模块',light:'间隙背光'},
+      {layout:'环绕式放射',focus:'中央LOGO',light:'中央聚光'},
+      {layout:'极简留白式',focus:'小巧文字',light:'漫反射'},
+      {layout:'时间轴叙事',focus:'横向起点',light:'金属线背光'},
+      {layout:'上下分区对比',focus:'上方深色',light:'分区照明'},
+      {layout:'棋盘格交错',focus:'横跨多格',light:'格间透光'},
+      {layout:'弧形流线型',focus:'曲线排列',light:'弧面灯带'},
+      {layout:'层叠书页式',focus:'外层书页',light:'页间透光'},
+      {layout:'对角线动态',focus:'斜向排列',light:'斜向灯带'},
+      {layout:'框景式画框',focus:'凹槽内',light:'框内照明'},
+      {layout:'柱廊式序列',focus:'多柱展示',light:'独立洗光'},
+      {layout:'折叠屏风式',focus:'各折叠面',light:'折叠光影'},
+      {layout:'涟漪扩散式',focus:'同心圆',light:'亮度递减'},
+      {layout:'拼图组合式',focus:'拼图块',light:'接缝透光'}
     ];
 
     const prompts = [];
     for(let i=0;i<20;i++) {
       const ly = layouts[i];
-      let matStr = mats.length>0 ? mats[i % mats.length] : '';
-      let mainColStr = mainCols.length>0 ? mainCols[i % mainCols.length] : '';
-      let accentColStr = accentCols.length>0 ? accentCols[i % accentCols.length] : '';
-      let styleStr = styles.length>0 ? styles[0] : '';
-      let craftStr = crafts.length>0 ? crafts[i % crafts.length] : '';
-      let lightStr = lights.length>0 ? lights[i % lights.length] : '';
-      let spaceStr = spaces.length>0 ? spaces[i % spaces.length] : '';
-      let formStr = forms.length>0 ? forms[i % forms.length] : '';
-      let moodStr = moods.length>0 ? moods[i % moods.length] : '';
+      const matStr = mats.length>0 ? mats[i % mats.length] : '';
+      const mainColStr = mainCols.length>0 ? mainCols[i % mainCols.length] : '';
+      const accentColStr = accentCols.length>0 ? accentCols[i % accentCols.length] : '';
+      const styleStr = styles.length>0 ? styles[0] : '';
+      const craftStr = crafts.length>0 ? crafts[i % crafts.length] : '';
+      const lightStr = lights.length>0 ? lights[i % lights.length] : '';
+      const spaceStr = spaces.length>0 ? spaces[i % spaces.length] : '';
+      const formStr = forms.length>0 ? forms[i % forms.length] : '';
+      const moodStr = moods.length>0 ? moods[i % moods.length] : '';
 
       let prefix = '';
       if(state.model==='midjourney') prefix='建筑室内效果图：';
@@ -501,7 +556,7 @@
         prompt,
         material: matStr || '未指定',
         color: mainColStr || '未指定',
-        layout: ly.layout.replace('布局','')
+        layout: ly.layout
       });
     }
     return prompts;
